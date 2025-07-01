@@ -14,9 +14,22 @@
 <svelte:window bind:scrollY />
 
 <section bind:this={heroElement} class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-	<!-- Background with parallax effect -->
+	<!-- Background video -->
+	<video 
+		autoplay 
+		muted 
+		loop 
+		playsinline
+		class="absolute inset-0 w-full h-full object-cover"
+		style="transform: translateY({scrollY * 0.3}px)"
+	>
+		<source src="/video/hero-background.mp4" type="video/mp4">
+		<source src="/video/hero-background.webm" type="video/webm">
+	</video>
+	
+	<!-- Video overlay with parallax effect -->
 	<div 
-		class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+		class="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-black/50 to-gray-900/70"
 		style="transform: translateY({scrollY * 0.5}px)"
 	></div>
 	
