@@ -41,22 +41,22 @@
 
 		<!-- Subtitle -->
 		<p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-			Photography • Music Production • Visual Storytelling
+			Full-Stack Development • Photography • Music Production
 		</p>
 
 		<!-- CTA Buttons -->
 		<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
 			<a 
-				href="#portfolio" 
+				href="#projects" 
 				class="px-8 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
 			>
-				View Portfolio
+				View Projects
 			</a>
 			<a 
-				href="#music" 
+				href="#photography" 
 				class="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105"
 			>
-				Listen to Beats
+				Photography
 			</a>
 		</div>
 

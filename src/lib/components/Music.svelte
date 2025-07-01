@@ -233,7 +233,7 @@
 		<!-- Call to action -->
 		<div class="text-center">
 			<p class="text-gray-400 mb-6">
-				Interested in custom music production or collaboration?
+				Interested in custom music production, development collaboration, or photography?
 			</p>
 			<a 
 				href="#contact" 

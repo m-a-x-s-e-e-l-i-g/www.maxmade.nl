@@ -53,10 +53,9 @@
 			<h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">
 				snd.msg
 			</h2>
-			<div class="w-24 h-1 bg-white mx-auto mb-6"></div>
-			<p class="text-xl text-gray-400 max-w-3xl mx-auto">
-				Ready to collaborate? Drop me a message and let's create something amazing together.
-			</p>
+			<div class="w-24 h-1 bg-white mx-auto mb-6"></div>		<p class="text-xl text-gray-400 max-w-3xl mx-auto">
+			Ready to collaborate on a project or book a photography session? Drop me a message and let's create something amazing together.
+		</p>
 		</div>
 
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">

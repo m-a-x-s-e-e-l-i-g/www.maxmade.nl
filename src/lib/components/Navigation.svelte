@@ -15,8 +15,11 @@
 			<!-- Desktop Navigation -->
 			<div class="hidden md:block">
 				<div class="ml-10 flex items-baseline space-x-4">
-					<a href="#portfolio" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
-						Portfolio
+					<a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+						Projects
+					</a>
+					<a href="#photography" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+						Photography
 					</a>
 					<a href="#music" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
 						Music
@@ -77,8 +80,11 @@
 	{#if mobileMenuOpen}
 		<div class="md:hidden">
 			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black border-t border-gray-800">
-				<a href="#portfolio" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
-					Portfolio
+				<a href="#projects" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+					Projects
+				</a>
+				<a href="#photography" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+					Photography
 				</a>
 				<a href="#music" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
 					Music
