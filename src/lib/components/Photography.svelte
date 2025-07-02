@@ -50,18 +50,6 @@
 			{/if}
 		</div>
 
-		<!-- Statistics -->
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-			<div class="text-center">
-				<div class="text-3xl font-bold text-white mb-2">{totalImages}</div>
-				<div class="text-gray-400">Total Photos</div>
-			</div>
-			<div class="text-center">
-				<div class="text-3xl font-bold text-white mb-2">5+</div>
-				<div class="text-gray-400">Years Experience</div>
-			</div>
-		</div>
-
 		<!-- Call to action -->
 		<div class="text-center">
 			<p class="text-gray-400 mb-6">
