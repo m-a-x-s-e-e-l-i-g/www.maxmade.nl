@@ -54,7 +54,7 @@
 				snd.msg
 			</h2>
 			<div class="w-24 h-1 bg-white mx-auto mb-6"></div>		<p class="text-xl text-gray-400 max-w-3xl mx-auto">
-			Ready to collaborate on a project or book a photography session? Drop me a message and let's create something amazing together.
+			Drop me a message.
 		</p>
 		</div>
 
@@ -196,23 +196,11 @@
 
 				<!-- Visual element -->
 				<div class="relative">
-					<div class="bg-gradient-to-br from-gray-800 to-black rounded-lg p-8 border border-gray-700">
+					<div class="bg-gradient-to-br from-gray-800 to-black rounded-lg p-12 border border-gray-700">
 						<div class="text-center">
 							<h4 class="text-xl font-bold text-white mb-4">
 								/\/\/-\&gt;&lt;
 							</h4>
-							<p class="text-gray-400 text-sm leading-relaxed">
-								"It's a weird thing to ask someone you barely know to hang above a 10-meter drop 
-								merely to pose for a picture, where the intimidating height isn't even visible."
-							</p>
-							<div class="mt-6 flex justify-center">
-								<div class="w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-full flex items-center justify-center">
-									<svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-									</svg>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
