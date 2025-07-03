@@ -40,15 +40,18 @@
 
 	<!-- Main content -->
 	<div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-		<!-- Main title with glitch effect -->
+		<!-- Main logo with glitch effect -->
 		<div class="mb-8">
-			<h1 class="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter text-white mb-4 glitch" data-text="MAX">
-				MAX
-			</h1>
+			<div class="flex justify-center mb-4">
+				<img 
+					src="/images/logo-MAXmade.svg" 
+					alt="MAXmade" 
+					class="h-24 sm:h-32 lg:h-40 w-auto glitch-logo" 
+				/>
+			</div>
 			<div class="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-300 tracking-wider">
-				<span class="inline-block animate-pulse">MADE BY</span>
 				<span class="mx-4 text-white font-bold">=/=</span>
-				<span class="inline-block">MAXmade</span>
+				<span class="inline-block">made by Max</span>
 			</div>
 		</div>
 
@@ -89,66 +92,28 @@
 </section>
 
 <style>
-	.glitch {
+	.glitch-logo {
 		position: relative;
-		animation: glitch 2s infinite;
+		animation: logo-glitch 3s infinite;
+		filter: drop-shadow(2px 0px 0px #ff0000) drop-shadow(-2px 0px 0px #00ffff);
 	}
 	
-	.glitch::before,
-	.glitch::after {
-		content: attr(data-text);
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-	
-	.glitch::before {
-		animation: glitch-1 0.5s infinite;
-		color: #ff0000;
-		z-index: -1;
-	}
-	
-	.glitch::after {
-		animation: glitch-2 0.5s infinite;
-		color: #00ffff;
-		z-index: -2;
-	}
-	
-	@keyframes glitch {
-		0%, 90%, 100% {
+	@keyframes logo-glitch {
+		0%, 95%, 100% {
 			transform: translateX(0);
+			filter: drop-shadow(0px 0px 0px transparent);
 		}
-		10% {
+		96% {
 			transform: translateX(-2px);
+			filter: drop-shadow(2px 0px 0px #ff0000) drop-shadow(-2px 0px 0px #00ffff);
 		}
-		20% {
+		97% {
 			transform: translateX(2px);
+			filter: drop-shadow(-2px 0px 0px #ff0000) drop-shadow(2px 0px 0px #00ffff);
 		}
-	}
-	
-	@keyframes glitch-1 {
-		0%, 90%, 100% {
-			transform: translateX(0);
-		}
-		10% {
-			transform: translateX(2px);
-		}
-		20% {
-			transform: translateX(-2px);
-		}
-	}
-	
-	@keyframes glitch-2 {
-		0%, 90%, 100% {
-			transform: translateX(0);
-		}
-		10% {
+		98% {
 			transform: translateX(-1px);
-		}
-		20% {
-			transform: translateX(1px);
+			filter: drop-shadow(1px 0px 0px #ff0000) drop-shadow(-1px 0px 0px #00ffff);
 		}
 	}
 </style>

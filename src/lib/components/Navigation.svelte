@@ -7,8 +7,8 @@
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo -->
 			<div class="flex-shrink-0">
-				<a href="/" class="text-xl font-bold text-white hover:text-gray-300 transition-colors">
-					MAXmade
+				<a href="/" class="hover:opacity-80 transition-opacity">
+					<img src="/images/logo-MAXmade.svg" alt="MAXmade" class="h-6 w-auto" />
 				</a>
 			</div>
 
