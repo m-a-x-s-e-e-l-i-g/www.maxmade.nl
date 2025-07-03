@@ -24,7 +24,6 @@
 		style="transform: translateY({scrollY * 0.3}px)"
 	>
 		<source src="/video/hero-background.mp4" type="video/mp4">
-		<source src="/video/hero-background.webm" type="video/webm">
 	</video>
 	
 	<!-- Video overlay with parallax effect -->
