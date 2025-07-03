@@ -48,15 +48,11 @@
 					class="h-24 sm:h-32 lg:h-40 w-auto glitch-logo" 
 				/>
 			</div>
-			<div class="text-2xl sm:text-4xl lg:text-5xl font-light text-gray-300 tracking-wider">
-				<span class="mx-4 text-white font-bold">=/=</span>
-				<span class="inline-block">made by Max</span>
-			</div>
 		</div>
 
 		<!-- Subtitle -->
 		<p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-			Full-Stack Development • Photography • Music Production
+			Coding • Photography • Music Production • Art • Parkour
 		</p>
 
 		<!-- CTA Buttons -->
@@ -76,7 +72,7 @@
 		</div>
 
 		<!-- Scroll indicator -->
-		<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+		<div class="absolute -bottom-40 left-1/2 transform -translate-x-1/2">
 			<div class="animate-bounce">
 				<svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
