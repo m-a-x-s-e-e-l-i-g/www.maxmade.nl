@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Gallery from 'svelte-image-gallery';
+	import { Image } from '@unpic/svelte';
 	import generatedImages from '$lib/generated-images.json';
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
@@ -99,9 +100,12 @@
 					hover={true}
 				>
 					{#each images as image}
-						<img 
+						<Image 
 							src={image.src} 
 							alt={image.alt}
+							layout="constrained"
+							width={300}
+							height={200}
 							loading="lazy"
 							class="rounded-lg shadow-lg"
 						/>
@@ -144,6 +148,7 @@
 		role="dialog"
 		aria-modal="true"
 		aria-label="Image viewer"
+		tabindex="-1"
 	>
 		<div class="relative w-full h-full flex items-center justify-center">
 			<!-- Close button -->
@@ -185,9 +190,12 @@
 			
 			<!-- Image container -->
 			<div class="flex items-center justify-center w-full h-full">
-				<img 
+				<Image 
 					src={selectedImage.src}
 					alt={selectedImage.alt}
+					layout="fullWidth"
+					width={1200}
+					height={800}
 					class="max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] w-auto h-auto object-contain rounded-lg shadow-2xl"
 				/>
 			</div>
