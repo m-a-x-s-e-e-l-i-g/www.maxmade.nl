@@ -23,6 +23,9 @@
 					<a href="#photography" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
 						Photography
 					</a>
+					<a href="#konine-art" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
+						🐰 Konine Art
+					</a>
 					<a href="#music" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">
 						Music
 					</a>
@@ -79,6 +82,9 @@
 				</a>
 				<a href="#photography" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
 					Photography
+				</a>
+				<a href="#konine-art" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+					🐰 Konine Art
 				</a>
 				<a href="#music" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
 					Music
