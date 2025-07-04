@@ -39,7 +39,7 @@
 					<span class="sr-only">LinkedIn</span>
 					<LinkedInIcon size={20} />
 				</a>
-				<a href="https://www.instagram.com/maxseelig_photography/" target="_blank" rel="noopener noreferrer"
+				<a href="https://www.instagram.com/the.maxest/" target="_blank" rel="noopener noreferrer"
 					 class="text-gray-400 hover:text-white transition-colors">
 					<span class="sr-only">Instagram</span>
 					<InstagramIcon size={20} />

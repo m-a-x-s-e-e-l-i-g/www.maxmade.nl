@@ -33,13 +33,13 @@
 		{
 			name: 'LinkedIn',
 			url: 'https://www.linkedin.com/in/maxse/',
-			description: 'Professional network',
+			description: 'I hate this place',
 			iconComponent: LinkedInIcon
 		},
 		{
 			name: 'Instagram',
-			url: 'https://www.instagram.com/maxseelig_photography/',
-			description: 'Photography portfolio',
+			url: 'https://www.instagram.com/the.maxest/',
+			description: 'Parkour / main account',
 			iconComponent: InstagramIcon
 		},
 		{
