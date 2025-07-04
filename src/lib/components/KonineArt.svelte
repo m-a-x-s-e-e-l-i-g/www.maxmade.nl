@@ -89,7 +89,7 @@
 
 		<!-- Call to action -->
 		<div class="text-center">
-			<div class="bg-gray-900 rounded-lg p-8 max-w-2xl mx-auto">
+			<div class="bg-gray-900 rounded-lg p-8 max-w-2xl mx-auto" style="border: 1px solid #0d282b;">
 				<h3 class="text-2xl font-bold text-white mb-4">
 					Explore More Rabbit Art
 				</h3>
