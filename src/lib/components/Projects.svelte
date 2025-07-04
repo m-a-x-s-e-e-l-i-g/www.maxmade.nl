@@ -1,131 +1,18 @@
 <script lang="ts">
-	// Your GitHub projects data
-	const projects = [
-		{
-			name: "pkfr-nl",
-			description: "An overview of jams, open gyms, and community links for freerunners in the Netherlands.",
-			technologies: ["Svelte"],
-			topics: ["community", "netherlands", "parkour", "freerunning"],
-			stars: 1,
-			license: "GPL-3.0",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl",			
-			category: "Community"
-		},
-		{
-			name: "current-moon-phase-3d",
-			description: "The current moon phase rendered in 3D using Three.js.",
-			technologies: ["Svelte", "Three.js"],
-			topics: ["threejs", "space", "moon", "3d", "lunar"],
-			stars: 1,
-			license: "GPL-3.0",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/current-moon-phase-3d",			
-			category: "Visualization"
-		},
-		{
-			name: "project-infinitisphere",
-			description: "A Free Golf Balls QR Code Generator built with Svelte.",
-			technologies: ["Svelte"],
-			topics: ["qrcode", "svelte", "qrcode-generator", "golf"],
-			stars: 0,
-			license: "MIT",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/project-infinitisphere",			
-			category: "Tools"
-		},
-		{
-			name: "MediaNav-to-Evolution-Upgrade",
-			description: "Upgrade your Renault / Dacia MediaNav software to MediaNav Evolution.",
-			technologies: ["Shell"],
-			topics: ["renault", "dacia", "medianav"],
-			stars: 13,
-			license: "GPL-3.0",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade",			
-			category: "Guides"
-		},
-		{
-			name: "very-ssh",
-			description: "A minimal, fast GUI for quickly launching SSH sessions from your ~/.ssh/config.",
-			technologies: ["Python"],
-			topics: ["ssh", "keychain", "ssh-config"],
-			stars: 2,
-			license: "MIT",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/very-ssh",			
-			category: "Development Tools"
-		},
-		{
-			name: "LGU-file-tools",
-			description: "Convert LGU firmware update package files used by Dacia & Renault MediaNav systems.",
-			technologies: ["Python"],
-			topics: ["converter", "renault", "dacia", "lgu", "medianav"],
-			stars: 5,
-			license: "MIT",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/LGU-file-tools",
-			category: "Tools"
-		},
-		{
-			name: "SSHKeychain",
-			description: "Command Palette Extension to quickly launch SSH sessions.",
-			technologies: ["C#"],
-			topics: ["ssh", "visual-studio"],
-			stars: 1,
-			license: "MIT",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/SSHKeychain",
-			category: "Development Tools"
-		},
-		{
-			name: "bluetube-youtube-tv-for-windows",
-			description: "An UNOFFICIAL YouTube client to make YouTube TV available on Windows.",
-			technologies: ["C#", "WinUI3"],
-			topics: ["youtube", "uwp", "smart-tv", "tv", "winui3"],
-			stars: 0,
-			license: "MIT",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/bluetube-youtube-tv-for-windows",
-			category: "Applications"
-		},
-		{
-			name: "renault-radio-code-generator",
-			description: "Renault / Dacia radio code generator.",
-			technologies: ["HTML", "JavaScript"],
-			topics: ["radio", "generator", "renault", "dacia"],
-			stars: 7,
-			license: "MIT",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/renault-radio-code-generator",
-			category: "Tools"
-		},
-		{
-			name: "common-email-domain-typos",
-			description: "List of common email domain typos and their suggested correction.",
-			technologies: ["Shell"],
-			topics: ["list", "spellcheck", "email", "domains", "autocorrect"],
-			stars: 2,
-			license: "GPL-3.0",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/common-email-domain-typos",
-			category: "Data"
-		}
-	];
+	import { projects, getTechColor } from '$lib/data/projects.js';
 
-	let selectedCategory = $state<string>("All");
+	let selectedCategory = $state<string>("Featured");
 
-	const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
+	const categories = ["Featured", "All", ...Array.from(new Set(projects.map(p => p.category)))];
 	
-	const filteredProjects = $derived(selectedCategory === "All" 
-		? projects 
-		: projects.filter(p => p.category === selectedCategory));
-	const displayedProjects = $derived(filteredProjects);
-
-	function getTechColor(tech: string): string {
-		const colors: { [key: string]: string } = {
-			'Svelte': 'bg-orange-500',
-			'JavaScript': 'bg-yellow-500',
-			'TypeScript': 'bg-blue-500',
-			'Python': 'bg-green-500',
-			'C#': 'bg-purple-500',
-			'HTML': 'bg-orange-600',
-			'Shell': 'bg-gray-500',
-			'Three.js': 'bg-black',
-			'WinUI3': 'bg-blue-600'
-		};
-		return colors[tech] || 'bg-gray-600';
-	}
+	const displayedProjects = $derived(() => {
+		if (selectedCategory === "Featured") {
+			return projects.filter(p => p.isFeatured);
+		}
+		return selectedCategory === "All" 
+			? projects 
+			: projects.filter(p => p.category === selectedCategory);
+	});
 </script>
 
 <section id="projects" class="py-20 bg-gray-900">
@@ -137,8 +24,8 @@
 			</h2>
 			<div class="w-24 h-1 bg-white mx-auto mb-6"></div>
 			<p class="text-xl text-gray-400 max-w-3xl mx-auto">
-				A collection of my open-source projects, tools, and experiments. 
-				From automotive solutions to development utilities and creative visualizations.
+				A collection of my projects, from live web applications and SaaS platforms to open-source tools and community resources.
+				Each project represents a solution to real-world problems.
 			</p>
 		</div>
 
@@ -158,15 +45,28 @@
 
 		<!-- Projects grid -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-			{#each displayedProjects as project}
+			{#each displayedProjects() as project}
 				<div class="bg-black rounded-lg border border-gray-800 overflow-hidden hover:border-gray-600 transition-colors group">
 					<!-- Project header -->
 					<div class="p-6">
 						<div class="flex items-start justify-between mb-4">
 							<div class="flex-1">
-								<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-gray-200 transition-colors">
-									{project.name}
-								</h3>
+								<div class="flex items-center gap-2 mb-2">
+									<h3 class="text-xl font-semibold text-white group-hover:text-gray-200 transition-colors">
+										{project.displayName || project.name}
+									</h3>
+									{#if project.isLive}
+										<div class="flex items-center">
+											<div class="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
+											<span class="text-xs text-green-500 font-medium">LIVE</span>
+										</div>
+									{/if}
+									{#if project.isFeatured}
+										<div class="px-2 py-1 bg-yellow-500 text-black text-xs font-bold rounded">
+											FEATURED
+										</div>
+									{/if}
+								</div>
 								<p class="text-gray-400 text-sm leading-relaxed">
 									{project.description}
 								</p>
@@ -199,7 +99,7 @@
 						<!-- Stats -->
 						<div class="flex items-center justify-between text-sm text-gray-400 mb-4">
 							<div class="flex items-center space-x-4">
-								{#if project.stars > 0}
+								{#if project.stars && project.stars > 0}
 									<div class="flex items-center">
 										<svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
 											<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -218,21 +118,54 @@
 
 						<!-- Action buttons -->
 						<div class="flex gap-3">
-							<a
-								href={project.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="flex-1 px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors text-center"
-							>
-								View on GitHub
-							</a>
+							{#if project.projectPage}
+								<a
+									href={project.projectPage}
+									class="flex-1 px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors text-center"
+								>
+									View Details
+								</a>
+							{:else if project.liveUrl}
+								<a
+									href={project.liveUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex-1 px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors text-center"
+								>
+									Visit Website
+								</a>
+							{:else if project.githubUrl}
+								<a
+									href={project.githubUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex-1 px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors text-center"
+								>
+									View on GitHub
+								</a>
+							{/if}
+							
+							{#if project.liveUrl && project.projectPage}
+								<a
+									href={project.liveUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="px-4 py-2 border border-gray-600 text-gray-300 text-sm font-medium rounded-lg hover:border-gray-500 hover:text-white transition-colors"
+									title="Visit live website"
+									aria-label="Visit live website"
+								>
+									<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+									</svg>
+								</a>
+							{/if}
 						</div>
 					</div>
 				</div>
 			{/each}
 		</div>
 
-		{#if displayedProjects.length === 0}
+		{#if displayedProjects().length === 0}
 			<div class="text-center py-12">
 				<p class="text-gray-400">No projects found in this category.</p>
 			</div>
