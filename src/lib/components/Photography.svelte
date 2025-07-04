@@ -20,8 +20,7 @@
 			</h2>
 			<div class="w-24 h-1 bg-white mx-auto mb-6"></div>
 			<p class="text-xl text-gray-400 max-w-3xl mx-auto">
-				Plug in to my visual journey - a chaotic stream of moments captured through my lens,
-				flooding your neural pathways with a torrent of visual data.
+				A chaotic stream of moments captured through my lens.
 			</p>
 		</div>
 

@@ -8,8 +8,7 @@
 			topics: ["community", "netherlands", "parkour", "freerunning"],
 			stars: 1,
 			license: "GPL-3.0",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl",
-			featured: true,
+			url: "https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl",			
 			category: "Community"
 		},
 		{
@@ -19,8 +18,7 @@
 			topics: ["threejs", "space", "moon", "3d", "lunar"],
 			stars: 1,
 			license: "GPL-3.0",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/current-moon-phase-3d",
-			featured: true,
+			url: "https://github.com/m-a-x-s-e-e-l-i-g/current-moon-phase-3d",			
 			category: "Visualization"
 		},
 		{
@@ -30,8 +28,7 @@
 			topics: ["qrcode", "svelte", "qrcode-generator", "golf"],
 			stars: 0,
 			license: "MIT",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/project-infinitisphere",
-			featured: true,
+			url: "https://github.com/m-a-x-s-e-e-l-i-g/project-infinitisphere",			
 			category: "Tools"
 		},
 		{
@@ -41,9 +38,8 @@
 			topics: ["renault", "dacia", "medianav"],
 			stars: 13,
 			license: "GPL-3.0",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade",
-			featured: true,
-			category: "Automotive"
+			url: "https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade",			
+			category: "Guides"
 		},
 		{
 			name: "very-ssh",
@@ -52,8 +48,7 @@
 			topics: ["ssh", "keychain", "ssh-config"],
 			stars: 2,
 			license: "MIT",
-			url: "https://github.com/m-a-x-s-e-e-l-i-g/very-ssh",
-			featured: true,
+			url: "https://github.com/m-a-x-s-e-e-l-i-g/very-ssh",			
 			category: "Development Tools"
 		},
 		{
@@ -64,8 +59,7 @@
 			stars: 5,
 			license: "MIT",
 			url: "https://github.com/m-a-x-s-e-e-l-i-g/LGU-file-tools",
-			featured: false,
-			category: "Automotive"
+			category: "Tools"
 		},
 		{
 			name: "SSHKeychain",
@@ -75,7 +69,6 @@
 			stars: 1,
 			license: "MIT",
 			url: "https://github.com/m-a-x-s-e-e-l-i-g/SSHKeychain",
-			featured: false,
 			category: "Development Tools"
 		},
 		{
@@ -86,7 +79,6 @@
 			stars: 0,
 			license: "MIT",
 			url: "https://github.com/m-a-x-s-e-e-l-i-g/bluetube-youtube-tv-for-windows",
-			featured: false,
 			category: "Applications"
 		},
 		{
@@ -97,8 +89,7 @@
 			stars: 7,
 			license: "MIT",
 			url: "https://github.com/m-a-x-s-e-e-l-i-g/renault-radio-code-generator",
-			featured: false,
-			category: "Automotive"
+			category: "Tools"
 		},
 		{
 			name: "common-email-domain-typos",
@@ -108,21 +99,18 @@
 			stars: 2,
 			license: "GPL-3.0",
 			url: "https://github.com/m-a-x-s-e-e-l-i-g/common-email-domain-typos",
-			featured: false,
 			category: "Data"
 		}
 	];
 
 	let selectedCategory = $state<string>("All");
-	let showAllProjects = $state(false);
 
 	const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
 	
-	const featuredProjects = $derived(projects.filter(p => p.featured));
 	const filteredProjects = $derived(selectedCategory === "All" 
 		? projects 
 		: projects.filter(p => p.category === selectedCategory));
-	const displayedProjects = $derived(showAllProjects ? filteredProjects : featuredProjects);
+	const displayedProjects = $derived(filteredProjects);
 
 	function getTechColor(tech: string): string {
 		const colors: { [key: string]: string } = {
@@ -168,16 +156,6 @@
 			{/each}
 		</div>
 
-		<!-- Featured/All toggle -->
-		<div class="text-center mb-8">
-			<button
-				onclick={() => showAllProjects = !showAllProjects}
-				class="px-6 py-2 border-2 border-gray-600 text-gray-300 rounded-lg hover:border-white hover:text-white transition-colors"
-			>
-				{showAllProjects ? 'Show Featured Only' : 'Show All Projects'}
-			</button>
-		</div>
-
 		<!-- Projects grid -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each displayedProjects as project}
@@ -193,13 +171,6 @@
 									{project.description}
 								</p>
 							</div>
-							{#if project.featured}
-								<div class="ml-4">
-									<span class="inline-flex items-center px-2 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-400 rounded-full">
-										Featured
-									</span>
-								</div>
-							{/if}
 						</div>
 
 						<!-- Technologies -->
