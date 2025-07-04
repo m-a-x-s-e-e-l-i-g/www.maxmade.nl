@@ -11,19 +11,14 @@
 	let selectedImage: { src: string; alt: string } | null = null;
 	let currentImageIndex = 0;
 
-	function handleImageClick(e: any) {
-		console.log('Clicked image src:', e.detail.src);
-		console.log('Available images:', images.map(img => img.src));
-		
+	function handleImageClick(e: any) {		
 		// Find the index of the clicked image
 		currentImageIndex = images.findIndex(img => img.src === e.detail.src);
-		console.log('Found index:', currentImageIndex);
 		
 		if (currentImageIndex === -1) {
 			// If exact match not found, try to find by filename
 			const clickedFilename = e.detail.src.split('/').pop();
 			currentImageIndex = images.findIndex(img => img.src.includes(clickedFilename));
-			console.log('Fallback index by filename:', currentImageIndex);
 			
 			if (currentImageIndex === -1) {
 				currentImageIndex = 0; // final fallback
@@ -36,9 +31,6 @@
 			alt: e.detail.alt || images[currentImageIndex]?.alt || 'Photography by MAXmade'
 		};
 		isModalOpen = true;
-		
-		console.log('Final currentImageIndex:', currentImageIndex);
-		console.log('Selected image:', selectedImage);
 	}
 
 	function closeModal() {
