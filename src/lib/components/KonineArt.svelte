@@ -4,7 +4,7 @@
 
 <style>
 	.carrot-background {
-		background-image: url('images/konine/carrot-tile.png');
+		background-image: url('./images/konine/carrot-tile.png');
 		background-repeat: repeat;
 	}
 </style>
