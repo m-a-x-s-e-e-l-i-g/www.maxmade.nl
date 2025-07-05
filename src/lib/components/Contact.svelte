@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { LinkedInIcon, InstagramIcon, GitHubIcon, EmailIcon } from './icons';
+	import { LinkedInIcon, InstagramIcon, GitHubIcon, EmailIcon, FacebookIcon, TelegramIcon, XboxIcon } from './icons';
 
 	const socialLinks = [
 		{
@@ -13,7 +13,8 @@
 			name: 'Facebook',
 			url: 'https://www.facebook.com/maxse',
 			description: 'Everything I post on IG ends up here',
-			badge: 'https://img.shields.io/badge/maxse-%232E87FB.svg?&logo=facebook&logoColor=white'
+			badge: 'https://img.shields.io/badge/maxse-%232E87FB.svg?&logo=facebook&logoColor=white',
+			iconComponent: FacebookIcon
 		},
 		{
 			name: 'Instagram',
@@ -40,13 +41,15 @@
 			name: 'Telegram',
 			url: 'https://t.me/m01xx',
 			description: 'Contact me here!',
-			badge: 'https://img.shields.io/badge/m01xx-%232CA5E0.svg?&logo=telegram&logoColor=white'
+			badge: 'https://img.shields.io/badge/m01xx-%232CA5E0.svg?&logo=telegram&logoColor=white',
+			iconComponent: TelegramIcon
 		},
 		{
 			name: 'Xbox',
 			url: 'https://account.xbox.com/Profile?Gamertag=Snurkpop',
 			description: 'Get snurkt m8',
-			badge: 'https://img.shields.io/badge/Snurkpop-%23107C10.svg?logo=Xbox&logoColor=white'
+			badge: 'https://img.shields.io/badge/Snurkpop-%23107C10.svg?logo=Xbox&logoColor=white',
+			iconComponent: XboxIcon
 		},
 		{
 			name: 'GitHub',
@@ -79,7 +82,7 @@
 					class="inline-flex items-center text-2xl font-semibold text-white hover:text-gray-300 transition-colors group"
 				>
 					<div class="w-16 h-16 bg-gray-800 rounded-xl flex items-center justify-center mr-6 group-hover:bg-gray-700 transition-colors">
-						<EmailIcon size={32} class="text-white" />
+						<EmailIcon size={32} className="text-white" />
 					</div>
 					<div class="text-left">
 						<div class="text-white">max@maxmade.nl</div>
