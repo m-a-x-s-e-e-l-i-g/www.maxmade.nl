@@ -10,10 +10,13 @@
 
 <svelte:head>
 	<title>MAXmade - Photography & Development by Max</title>
-	<meta name="description" content="Full-stack development, photography, rabbit art, and music by Max - creating innovative solutions, capturing life's moments, and drawing expressive rabbits" />
+	<meta
+		name="description"
+		content="Full-stack development, photography, rabbit art, and music by Max - creating innovative solutions, capturing life's moments, and drawing expressive rabbits"
+	/>
 </svelte:head>
 
-<main class="bg-black text-white min-h-screen">
+<main class="min-h-screen bg-black text-white">
 	<Hero />
 	<About />
 	<Projects />

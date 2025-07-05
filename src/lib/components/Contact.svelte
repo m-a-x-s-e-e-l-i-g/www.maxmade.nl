@@ -1,5 +1,13 @@
 <script lang="ts">
-	import { LinkedInIcon, InstagramIcon, GitHubIcon, EmailIcon, FacebookIcon, TelegramIcon, XboxIcon } from './icons';
+	import {
+		LinkedInIcon,
+		InstagramIcon,
+		GitHubIcon,
+		EmailIcon,
+		FacebookIcon,
+		TelegramIcon,
+		XboxIcon
+	} from './icons';
 
 	const socialLinks = [
 		{
@@ -20,21 +28,24 @@
 			name: 'Instagram',
 			url: 'https://instagram.com/the.maxest',
 			description: 'Parkour / main account',
-			badge: 'https://img.shields.io/badge/the.maxest-%23000000.svg?&logo=instagram&logoColor=white',
+			badge:
+				'https://img.shields.io/badge/the.maxest-%23000000.svg?&logo=instagram&logoColor=white',
 			iconComponent: InstagramIcon
 		},
 		{
 			name: 'Instagram',
 			url: 'https://instagram.com/maxseelig_photography',
 			description: 'Photography portfolio',
-			badge: 'https://img.shields.io/badge/maxseelig_photography-%23000000.svg?&logo=instagram&logoColor=white',
+			badge:
+				'https://img.shields.io/badge/maxseelig_photography-%23000000.svg?&logo=instagram&logoColor=white',
 			iconComponent: InstagramIcon
 		},
 		{
 			name: 'Instagram',
 			url: 'https://instagram.com/the.konijn',
 			description: 'Konijn art',
-			badge: 'https://img.shields.io/badge/the.konijn-%23000000.svg?&logo=instagram&logoColor=white',
+			badge:
+				'https://img.shields.io/badge/the.konijn-%23000000.svg?&logo=instagram&logoColor=white',
 			iconComponent: InstagramIcon
 		},
 		{
@@ -55,33 +66,32 @@
 			name: 'GitHub',
 			url: 'https://github.com/m-a-x-s-e-e-l-i-g',
 			description: 'Code repositories',
-			badge: 'https://img.shields.io/badge/m--a--x--s--e--e--l--i--g-%23181717.svg?&logo=github&logoColor=white',
+			badge:
+				'https://img.shields.io/badge/m--a--x--s--e--e--l--i--g-%23181717.svg?&logo=github&logoColor=white',
 			iconComponent: GitHubIcon
 		}
 	];
 </script>
 
-<section id="contact" class="py-20 bg-gray-900">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="contact" class="bg-gray-900 py-20">
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<!-- Section header -->
-		<div class="text-center mb-16">
-			<h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">
-				Connect with me
-			</h2>
-			<div class="w-24 h-1 bg-white mx-auto mb-6"></div>
-			<p class="text-xl text-gray-400 max-w-3xl mx-auto">
-				Find me across the digital universe 🌌
-			</p>
+		<div class="mb-16 text-center">
+			<h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl">Connect with me</h2>
+			<div class="mx-auto mb-6 h-1 w-24 bg-white"></div>
+			<p class="mx-auto max-w-3xl text-xl text-gray-400">Find me across the digital universe 🌌</p>
 		</div>
 
-		<div class="max-w-4xl mx-auto">
+		<div class="mx-auto max-w-4xl">
 			<!-- Email section -->
-			<div class="text-center mb-12">
-				<a 
+			<div class="mb-12 text-center">
+				<a
 					href="mailto:max@maxmade.nl"
-					class="inline-flex items-center text-2xl font-semibold text-white hover:text-gray-300 transition-colors group"
+					class="group inline-flex items-center text-2xl font-semibold text-white transition-colors hover:text-gray-300"
 				>
-					<div class="w-16 h-16 bg-gray-800 rounded-xl flex items-center justify-center mr-6 group-hover:bg-gray-700 transition-colors">
+					<div
+						class="mr-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gray-800 transition-colors group-hover:bg-gray-700"
+					>
 						<EmailIcon size={32} className="text-white" />
 					</div>
 					<div class="text-left">
@@ -92,17 +102,19 @@
 			</div>
 
 			<!-- Social links grid -->
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+			<div class="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{#each socialLinks as social}
-					<a 
+					<a
 						href={social.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="bg-black rounded-xl p-6 border border-gray-800 hover:border-gray-600 transition-all duration-300 transform hover:scale-105 group"
+						class="group transform rounded-xl border border-gray-800 bg-black p-6 transition-all duration-300 hover:scale-105 hover:border-gray-600"
 					>
-						<div class="flex items-center mb-4">
+						<div class="mb-4 flex items-center">
 							{#if social.iconComponent}
-								<div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mr-4 group-hover:bg-gray-700 transition-colors">
+								<div
+									class="mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-800 transition-colors group-hover:bg-gray-700"
+								>
 									<social.iconComponent size={24} />
 								</div>
 							{/if}
@@ -112,10 +124,10 @@
 							</div>
 						</div>
 						{#if social.badge}
-							<img 
-								src={social.badge} 
+							<img
+								src={social.badge}
 								alt={social.name}
-								class="mx-auto hover:opacity-80 transition-opacity"
+								class="mx-auto transition-opacity hover:opacity-80"
 							/>
 						{/if}
 					</a>
@@ -124,14 +136,12 @@
 
 			<!-- ASCII Art Section -->
 			<div class="text-center">
-				<div class="bg-gradient-to-br from-gray-800 to-black rounded-xl p-12 border border-gray-700">
+				<div
+					class="rounded-xl border border-gray-700 bg-gradient-to-br from-gray-800 to-black p-12"
+				>
 					<div class="text-center">
-						<h4 class="text-3xl font-bold text-white mb-4 font-mono">
-							/\/\/-\&gt;&lt;
-						</h4>
-						<p class="text-gray-400">
-							Let's do something interesting together! 🚀
-						</p>
+						<h4 class="mb-4 font-mono text-3xl font-bold text-white">/\/\/-\&gt;&lt;</h4>
+						<p class="text-gray-400">Let's do something interesting together! 🚀</p>
 					</div>
 				</div>
 			</div>

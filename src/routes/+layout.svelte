@@ -5,7 +5,7 @@
 	let { children } = $props();
 </script>
 
-<div class="bg-black min-h-screen">
+<div class="min-h-screen bg-black">
 	<Navigation />
 	{@render children()}
 </div>
