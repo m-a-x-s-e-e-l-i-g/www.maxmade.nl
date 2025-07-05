@@ -1,0 +1,110 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	
+	let scrollY = $state(0);
+	
+	onMount(() => {
+		const handleScroll = () => scrollY = window.scrollY;
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	});
+</script>
+
+<svelte:window bind:scrollY />
+
+<section id="about" class="py-20 bg-black relative overflow-hidden">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- Section header -->
+		<div class="text-center mb-16">
+			<h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">
+				About Me
+			</h2>
+			<div class="w-24 h-1 bg-white mx-auto"></div>
+		</div>
+
+		<!-- Main content -->
+		<div class="grid lg:grid-cols-2 gap-12 items-center">
+			<!-- Text content -->
+			<div class="space-y-8">
+				<div class="text-xl text-gray-300 leading-relaxed">
+					<p class="mb-6">
+						I'm <span class="text-white font-semibold">Max</span> — a web developer, creator, and parkour athlete from Bergen op Zoom 🇳🇱.
+					</p>
+					<p class="mb-6">
+						I spend most of my time building digital tools, coding ideas into reality, and enjoying life offline through parkour, photography, and creative side projects under the name <span class="text-white font-semibold">MAXmade</span>.
+					</p>
+					<p class="text-gray-400">
+						I like to keep things simple, fast, and fun — whether it's in code or daily life.
+					</p>
+				</div>
+
+				<!-- Hand-drawn signature -->
+				<div class="inline-block ml-2">
+                    <img src="images/signature-max.svg" alt="Max's Signature" class="signature w-24 h-auto mx-auto" />
+				</div>
+			</div>
+
+			<!-- Parkour video -->
+			<div class="relative">
+				<div class="relative rounded-lg overflow-hidden shadow-2xl">
+					<!-- Placeholder for parkour video - you'll need to add your parkour video file -->
+					<div class="aspect-video bg-gray-800 flex items-center justify-center">
+						<div class="text-center text-gray-400">
+							<svg class="w-16 h-16 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+							<p class="text-sm">Parkour video placeholder</p>
+							<p class="text-xs mt-2">Parkour video coming soon</p>
+						</div>
+					</div>
+					<!-- 
+					Uncomment when you add your parkour video:
+					<video 
+						autoplay 
+						muted 
+						loop 
+						playsinline
+						class="w-full h-full object-cover"
+					>
+						<source src="/video/parkour.mp4" type="video/mp4">
+					</video>
+					-->
+				</div>
+				
+				<!-- Floating elements for visual interest -->
+				<div class="absolute -top-4 -right-4 w-8 h-8 border-2 border-white/20 rounded-full animate-pulse"></div>
+				<div class="absolute -bottom-4 -left-4 w-6 h-6 bg-white/10 rounded-full animate-bounce" style="animation-delay: 0.5s"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Background pattern -->
+	<div class="absolute inset-0 opacity-5 pointer-events-none">
+		<div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+	</div>
+</section>
+
+<style>
+	.signature {
+		opacity: 0.8;
+		filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+	}
+	
+	.signature path {
+		stroke-dasharray: 200;
+		stroke-dashoffset: 200;
+		animation: drawSignature 3s ease-in-out infinite;
+	}
+	
+	@keyframes drawSignature {
+		0% {
+			stroke-dashoffset: 200;
+		}
+		50% {
+			stroke-dashoffset: 0;
+		}
+		100% {
+			stroke-dashoffset: 0;
+		}
+	}
+</style>

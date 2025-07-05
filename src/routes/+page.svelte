@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Hero from '../lib/components/Hero.svelte';
+	import About from '../lib/components/About.svelte';
 	import Projects from '../lib/components/Projects.svelte';
 	import Photography from '../lib/components/Photography.svelte';
 	import KonineArt from '../lib/components/KonineArt.svelte';
@@ -14,6 +15,7 @@
 
 <main class="bg-black text-white min-h-screen">
 	<Hero />
+	<About />
 	<Projects />
 	<Photography />
 	<KonineArt />
