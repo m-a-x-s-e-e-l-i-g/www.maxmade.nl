@@ -7,6 +7,15 @@
 
 	// Use the generated images
 	const images = generatedImages.images;
+	
+	// Track if we're on mobile
+	let isMobile = false;
+	
+	function checkMobile() {
+		if (browser) {
+			isMobile = window.innerWidth < 768; // md breakpoint
+		}
+	}
 
 	let isModalOpen = false;
 	let selectedImage: { src: string; alt: string } | null = null;
@@ -67,12 +76,15 @@
 	onMount(() => {
 		if (browser) {
 			document.addEventListener('keydown', handleKeydown);
+			checkMobile();
+			window.addEventListener('resize', checkMobile);
 		}
 	});
 
 	onDestroy(() => {
 		if (browser) {
 			document.removeEventListener('keydown', handleKeydown);
+			window.removeEventListener('resize', checkMobile);
 		}
 	});
 </script>
@@ -93,24 +105,48 @@
 		<!-- Gallery -->
 		<div class="mb-16">
 			{#if images.length > 0}
-				<Gallery 
-					on:click={handleImageClick}
-					gap={15}
-					maxColumnWidth={300}
-					hover={true}
-				>
-					{#each images as image}
-						<Image 
-							src={image.src} 
-							alt={image.alt}
-							layout="constrained"
-							width={300}
-							height={200}
-							loading="lazy"
-							class="rounded-lg shadow-lg"
-						/>
-					{/each}
-				</Gallery>
+				{#if isMobile}
+					<!-- Mobile: Compact grid layout -->
+					<div class="grid grid-cols-5 gap-1 sm:gap-2">
+						{#each images as image}
+							<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
+							<div 
+								class="aspect-square overflow-hidden rounded cursor-pointer hover:opacity-75 transition-opacity"
+								on:click={() => handleImageClick({ detail: { src: image.src, alt: image.alt } })}
+							>
+								<Image 
+									src={image.src} 
+									alt={image.alt}
+									layout="constrained"
+									width={150}
+									height={150}
+									loading="lazy"
+									class="w-full h-full object-cover"
+								/>
+							</div>
+						{/each}
+					</div>
+				{:else}
+					<!-- Desktop: Masonry layout -->
+					<Gallery 
+						on:click={handleImageClick}
+						gap={15}
+						maxColumnWidth={300}
+						hover={true}
+					>
+						{#each images as image}
+							<Image 
+								src={image.src} 
+								alt={image.alt}
+								layout="constrained"
+								width={300}
+								height={200}
+								loading="lazy"
+								class="rounded-lg shadow-lg"
+							/>
+						{/each}
+					</Gallery>
+				{/if}
 			{:else}
 				<div class="text-center py-12">
 					<p class="text-gray-400">No images found.</p>
