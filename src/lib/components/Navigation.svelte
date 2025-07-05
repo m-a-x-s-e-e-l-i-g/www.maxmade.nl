@@ -2,9 +2,36 @@
 	import { LinkedInIcon, InstagramIcon, GitHubIcon, EmailIcon } from './icons';
 	
 	let mobileMenuOpen = $state(false);
+	let navElement: HTMLElement;
+
+	// Close mobile menu when clicking outside
+	function handleClickOutside(event: MouseEvent) {
+		if (mobileMenuOpen && navElement && !navElement.contains(event.target as Node)) {
+			mobileMenuOpen = false;
+		}
+	}
+
+	// Close mobile menu when clicking on menu items
+	function closeMobileMenu() {
+		mobileMenuOpen = false;
+	}
+
+	// Add/remove event listener when mobile menu state changes
+	$effect(() => {
+		if (mobileMenuOpen) {
+			document.addEventListener('click', handleClickOutside);
+		} else {
+			document.removeEventListener('click', handleClickOutside);
+		}
+
+		// Cleanup on component destroy
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
+	});
 </script>
 
-<nav class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+<nav bind:this={navElement} class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo -->
@@ -77,19 +104,19 @@
 	{#if mobileMenuOpen}
 		<div class="md:hidden">
 			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black border-t border-gray-800">
-				<a href="#projects" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+				<a href="#projects" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" onclick={closeMobileMenu}>
 					Projects
 				</a>
-				<a href="#photography" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+				<a href="#photography" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" onclick={closeMobileMenu}>
 					Photography
 				</a>
-				<a href="#konine-art" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+				<a href="#konine-art" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" onclick={closeMobileMenu}>
 					🐰 Konine Art
 				</a>
-				<a href="#music" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+				<a href="#music" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" onclick={closeMobileMenu}>
 					Music
 				</a>
-				<a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">
+				<a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" onclick={closeMobileMenu}>
 					Contact
 				</a>
 				<div class="px-3 py-2 flex space-x-4">
