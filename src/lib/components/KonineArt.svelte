@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { Image } from '@unpic/svelte';
+	import { base } from '$app/paths';
 </script>
 
 <style>
 	.carrot-background {
-		background-image: url('./images/konine/carrot-tile.png');
 		background-repeat: repeat;
 	}
 </style>
 
-<section id="konine-art" class="py-20 bg-black carrot-background relative">
+<section id="konine-art" class="py-20 bg-black carrot-background relative" style="background-image: url({base}/images/konine/carrot-tile.png);">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 		<!-- Section header -->
 		<div class="text-center mb-16">
