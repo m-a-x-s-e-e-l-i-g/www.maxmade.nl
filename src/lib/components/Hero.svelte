@@ -2,11 +2,58 @@
 	import { onMount } from 'svelte';
 	
 	let heroElement: HTMLElement;
+	let videoElement: HTMLVideoElement;
 	let scrollY = $state(0);
 	
 	onMount(() => {
 		const handleScroll = () => scrollY = window.scrollY;
 		window.addEventListener('scroll', handleScroll);
+		
+		// Handle video playback for mobile devices
+		if (videoElement) {
+			// Try to play the video
+			const playPromise = videoElement.play();
+			
+			if (playPromise !== undefined) {
+				playPromise.catch(() => {
+					// Autoplay was prevented, which is expected on mobile
+					console.log('Video autoplay was prevented');
+				});
+			}
+			
+			// Handle visibility change (when user switches tabs)
+			const handleVisibilityChange = () => {
+				if (document.hidden) {
+					videoElement.pause();
+				} else {
+					videoElement.play().catch(() => {
+						// Ignore errors when trying to play
+					});
+				}
+			};
+			
+			// Try to play video on user interaction (for mobile)
+			const handleUserInteraction = () => {
+				if (videoElement.paused) {
+					videoElement.play().catch(() => {
+						// Ignore errors
+					});
+				}
+			};
+			
+			// Add event listeners for user interaction
+			document.addEventListener('touchstart', handleUserInteraction, { once: true });
+			document.addEventListener('click', handleUserInteraction, { once: true });
+			document.addEventListener('visibilitychange', handleVisibilityChange);
+			
+			return () => {
+				window.removeEventListener('scroll', handleScroll);
+				document.removeEventListener('visibilitychange', handleVisibilityChange);
+				document.removeEventListener('touchstart', handleUserInteraction);
+				document.removeEventListener('click', handleUserInteraction);
+			};
+		}
+		
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
 </script>
@@ -16,15 +63,40 @@
 <section bind:this={heroElement} class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
 	<!-- Background video -->
 	<video 
+		bind:this={videoElement}
 		autoplay 
 		muted 
 		loop 
 		playsinline
+		controls={false}
+		preload="metadata"
 		class="absolute inset-0 w-full h-full object-cover"
 		style="transform: translateY({scrollY * 0.3}px)"
+		oncanplay={(e) => {
+			// Force play on mobile devices
+			const video = e.target as HTMLVideoElement;
+			video.play().catch(() => {
+				// If autoplay fails, we'll rely on the fallback background
+				console.log('Video autoplay blocked');
+			});
+		}}
+		onloadstart={() => {
+			// Hide fallback when video starts loading
+			if (videoElement) {
+				videoElement.style.opacity = '1';
+			}
+		}}
 	>
 		<source src="/video/hero-background.mp4" type="video/mp4">
+		<!-- Fallback for very old browsers -->
+		Your browser does not support the video tag.
 	</video>
+	
+	<!-- Fallback background for when video fails to load/play -->
+	<div 
+		class="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-800 via-gray-900 to-black"
+		style="transform: translateY({scrollY * 0.3}px); z-index: -1;"
+	></div>
 	
 	<!-- Video overlay with parallax effect -->
 	<div 
@@ -109,6 +181,22 @@
 		98% {
 			transform: translateX(-1px);
 			filter: drop-shadow(1px 0px 0px #ff0000) drop-shadow(-1px 0px 0px #00ffff);
+		}
+	}
+	
+	/* Optimize video performance on mobile */
+	@media (max-width: 768px) {
+		video {
+			/* Reduce video quality impact on mobile */
+			transform: translate3d(0, 0, 0);
+			backface-visibility: hidden;
+		}
+	}
+	
+	/* Disable parallax on mobile for better performance */
+	@media (max-width: 768px) and (orientation: portrait) {
+		video, .absolute.inset-0.bg-gradient-to-br {
+			transform: none !important;
 		}
 	}
 </style>
