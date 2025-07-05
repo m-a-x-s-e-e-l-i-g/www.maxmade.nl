@@ -1,51 +1,43 @@
 <script lang="ts">
-	import { LinkedInIcon, InstagramIcon, GitHubIcon, EmailIcon } from './icons';
+	import { LinkedInIcon, InstagramIcon, GitHubIcon } from './icons';
 
 	const socialLinks = [
 		{
 			name: 'LinkedIn',
 			url: 'https://linkedin.com/in/maxse',
-			description: 'Nothing interesting here',
+			description: 'Professional network',
 			badge: 'https://img.shields.io/badge/maxse-%231E77B5.svg?&logo=linkedin&logoColor=white',
 			iconComponent: LinkedInIcon
 		},
 		{
 			name: 'Facebook',
 			url: 'https://www.facebook.com/maxse',
-			description: 'Everything I post on IG ends up here',
+			description: 'Personal updates',
 			badge: 'https://img.shields.io/badge/maxse-%232E87FB.svg?&logo=facebook&logoColor=white'
 		},
 		{
-			name: 'Instagram',
+			name: 'Instagram - Main',
 			url: 'https://instagram.com/the.maxest',
 			description: 'Parkour / main account',
 			badge: 'https://img.shields.io/badge/the.maxest-%23000000.svg?&logo=instagram&logoColor=white',
 			iconComponent: InstagramIcon
 		},
 		{
-			name: 'Instagram',
+			name: 'Instagram - Photography',
 			url: 'https://instagram.com/maxseelig_photography',
 			description: 'Photography portfolio',
-			badge: 'https://img.shields.io/badge/maxseelig_photography-%23000000.svg?&logo=instagram&logoColor=white',
-			iconComponent: InstagramIcon
-		},
-		{
-			name: 'Instagram',
-			url: 'https://instagram.com/the.konijn',
-			description: 'Konijn art',
-			badge: 'https://img.shields.io/badge/the.konijn-%23000000.svg?&logo=instagram&logoColor=white',
-			iconComponent: InstagramIcon
+			badge: 'https://img.shields.io/badge/maxseelig_photography-%23000000.svg?&logo=instagram&logoColor=white'
 		},
 		{
 			name: 'Telegram',
 			url: 'https://t.me/m01xx',
-			description: 'Contact me here!',
+			description: 'Direct messaging',
 			badge: 'https://img.shields.io/badge/m01xx-%232CA5E0.svg?&logo=telegram&logoColor=white'
 		},
 		{
 			name: 'Xbox',
 			url: 'https://account.xbox.com/Profile?Gamertag=Snurkpop',
-			description: 'Get snurkt m8',
+			description: 'Gaming profile',
 			badge: 'https://img.shields.io/badge/Snurkpop-%23107C10.svg?logo=Xbox&logoColor=white'
 		},
 		{
@@ -79,7 +71,9 @@
 					class="inline-flex items-center text-2xl font-semibold text-white hover:text-gray-300 transition-colors group"
 				>
 					<div class="w-16 h-16 bg-gray-800 rounded-xl flex items-center justify-center mr-6 group-hover:bg-gray-700 transition-colors">
-						<EmailIcon size={32} class="text-white" />
+						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z" />
+						</svg>
 					</div>
 					<div class="text-left">
 						<div class="text-white">max@maxmade.nl</div>
@@ -127,7 +121,7 @@
 							/\/\/-\&gt;&lt;
 						</h4>
 						<p class="text-gray-400">
-							Let's do something interesting together! 🚀
+							Let's build something amazing together
 						</p>
 					</div>
 				</div>
