@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d277a960-2035-42f0-a1a0-56a1d51b8a00/deploy-status)](https://app.netlify.com/projects/maxmade/deploys)
 # MAXmade Portfolio Website
 
 A modern, responsive portfolio website showcasing Max Seelig's work in development, photography, art, and music. Built with SvelteKit and Tailwind CSS.
