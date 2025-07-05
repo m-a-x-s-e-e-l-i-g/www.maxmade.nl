@@ -47,18 +47,6 @@
 			<!-- Parkour video -->
 			<div class="relative">
 				<div class="relative rounded-lg overflow-hidden shadow-2xl">
-					<!-- Placeholder for parkour video - you'll need to add your parkour video file -->
-					<div class="aspect-video bg-gray-800 flex items-center justify-center">
-						<div class="text-center text-gray-400">
-							<svg class="w-16 h-16 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M8 5v14l11-7z"/>
-							</svg>
-							<p class="text-sm">Parkour video placeholder</p>
-							<p class="text-xs mt-2">Parkour video coming soon</p>
-						</div>
-					</div>
-					<!-- 
-					Uncomment when you add your parkour video:
 					<video 
 						autoplay 
 						muted 
@@ -68,7 +56,6 @@
 					>
 						<source src="/video/parkour.mp4" type="video/mp4">
 					</video>
-					-->
 				</div>
 				
 				<!-- Floating elements for visual interest -->
