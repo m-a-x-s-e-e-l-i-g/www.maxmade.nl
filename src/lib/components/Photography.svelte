@@ -109,7 +109,7 @@
 						{#each images as image}
 							<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
 							<div
-								class="aspect-square cursor-pointer overflow-hidden rounded transition-opacity hover:opacity-75"
+								class="cursor-pointer overflow-hidden rounded transition-opacity hover:opacity-75"
 								on:click={() => handleImageClick({ detail: { src: image.src, alt: image.alt } })}
 							>
 								<Image
@@ -117,9 +117,9 @@
 									alt={image.alt}
 									layout="constrained"
 									width={150}
-									height={150}
 									loading="lazy"
-									class="h-full w-full object-cover"
+									class="w-full h-auto object-contain"
+									cdn={dev ? undefined : "netlify"}
 								/>
 							</div>
 						{/each}
