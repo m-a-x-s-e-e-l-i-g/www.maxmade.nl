@@ -46,10 +46,10 @@
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 			{#each displayedProjects() as project}
 				<div
-					class="group overflow-hidden rounded-lg border border-gray-800 bg-black transition-colors hover:border-gray-600"
+					class="group flex flex-col overflow-hidden rounded-lg border border-gray-800 bg-black transition-colors hover:border-gray-600"
 				>
 					<!-- Project header -->
-					<div class="p-6">
+					<div class="flex flex-1 flex-col p-6">
 						<div class="mb-4 flex items-start justify-between">
 							<div class="flex-1">
 								<div class="mb-2 flex items-center gap-2">
@@ -69,6 +69,9 @@
 								</p>
 							</div>
 						</div>
+						
+						<!-- Flexible content area -->
+						<div class="flex flex-1 flex-col justify-end">
 
 						<!-- Technologies -->
 						<div class="mb-4 flex flex-wrap gap-2">
@@ -167,6 +170,7 @@
 									</svg>
 								</a>
 							{/if}
+						</div>
 						</div>
 					</div>
 				</div>
