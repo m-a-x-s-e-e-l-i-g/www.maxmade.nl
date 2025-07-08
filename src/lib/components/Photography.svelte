@@ -3,7 +3,7 @@
 	import { Image } from '@unpic/svelte';
 	import generatedImages from '$lib/generated-images.json';
 	import { onMount, onDestroy } from 'svelte';
-	import { browser } from '$app/environment';
+	import { browser, dev } from '$app/environment';
 
 	// Use the generated images
 	const images = generatedImages.images;
@@ -136,6 +136,7 @@
 								height={200}
 								loading="lazy"
 								class="rounded-lg shadow-lg"
+								cdn={dev ? undefined : "netlify"}
 							/>
 						{/each}
 					</Gallery>
@@ -240,10 +241,11 @@
 				<Image
 					src={selectedImage.src}
 					alt={selectedImage.alt}
-					layout="fullWidth"
+					layout="constrained"
 					width={1200}
 					height={800}
 					class="h-auto max-h-[calc(100vh-2rem)] w-auto max-w-[calc(100vw-2rem)] rounded-lg object-contain shadow-2xl"
+					cdn={dev ? undefined : "netlify"}
 				/>
 			</div>
 
