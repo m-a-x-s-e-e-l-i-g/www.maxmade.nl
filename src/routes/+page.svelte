@@ -5,6 +5,7 @@
 	import Photography from '../lib/components/Photography.svelte';
 	import KonineArt from '../lib/components/KonineArt.svelte';
 	import Music from '../lib/components/Music.svelte';
+	import Statistics from '../lib/components/Statistics.svelte';
 	import Contact from '../lib/components/Contact.svelte';
 </script>
 
@@ -23,5 +24,6 @@
 	<Photography />
 	<KonineArt />
 	<Music />
+	<Statistics />
 	<Contact />
 </main>

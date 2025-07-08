@@ -72,6 +72,12 @@
 						Music
 					</a>
 					<a
+						href="#statistics"
+						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
+					>
+						Statistics
+					</a>
+					<a
 						href="#contact"
 						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
 					>
@@ -166,6 +172,13 @@
 					onclick={closeMobileMenu}
 				>
 					Music
+				</a>
+				<a
+					href="#statistics"
+					class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
+					onclick={closeMobileMenu}
+				>
+					📊 Statistics
 				</a>
 				<a
 					href="#contact"

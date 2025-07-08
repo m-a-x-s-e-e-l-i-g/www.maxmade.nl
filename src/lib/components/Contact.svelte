@@ -73,7 +73,7 @@
 	];
 </script>
 
-<section id="contact" class="bg-gray-900 py-20">
+<section id="contact" class="bg-black py-20">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<!-- Section header -->
 		<div class="mb-16 text-center">
