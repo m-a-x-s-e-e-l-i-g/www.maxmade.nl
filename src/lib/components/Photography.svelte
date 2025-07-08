@@ -241,7 +241,7 @@
 				<Image
 					src={selectedImage.src}
 					alt={selectedImage.alt}
-					layout="fullWidth"
+					layout="constrained"
 					width={1200}
 					height={800}
 					class="h-auto max-h-[calc(100vh-2rem)] w-auto max-w-[calc(100vw-2rem)] rounded-lg object-contain shadow-2xl"
