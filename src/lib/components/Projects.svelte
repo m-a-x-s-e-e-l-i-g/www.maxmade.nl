@@ -58,12 +58,6 @@
 									>
 										{project.displayName || project.name}
 									</h3>
-									{#if project.isLive}
-										<div class="flex items-center">
-											<div class="mr-1 h-2 w-2 rounded-full bg-green-500"></div>
-											<span class="text-xs font-medium text-green-500">LIVE</span>
-										</div>
-									{/if}
 									{#if project.isFeatured}
 										<div class="rounded bg-yellow-500 px-2 py-1 text-xs font-bold text-black">
 											FEATURED

@@ -59,12 +59,20 @@
 
 				<div class="ml-6 flex gap-3">
 					<a
-						href="https://github.com/m-a-x-s-e-e-l-i-g/current-moon-phase-3d"
+						href="https://moon-phase.netlify.app/"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="rounded-lg bg-white px-6 py-3 font-semibold text-black transition-colors hover:bg-gray-200"
 					>
-						View on GitHub
+						Visit Website
+					</a>
+					<a
+						href="https://github.com/m-a-x-s-e-e-l-i-g/current-moon-phase-3d"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-black"
+					>
+						View Code
 					</a>
 				</div>
 			</div>

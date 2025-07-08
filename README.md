@@ -172,7 +172,6 @@ Edit `src/lib/data/projects.ts` to add new projects:
   topics: ["web", "development"],
   stars: 0,
   license: "MIT",
-  isLive: true,
   liveUrl: "https://example.com",
   githubUrl: "https://github.com/username/repo",
   category: "Web Applications"
