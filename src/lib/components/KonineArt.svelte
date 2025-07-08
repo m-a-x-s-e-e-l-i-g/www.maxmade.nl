@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Image } from '@unpic/svelte';
 	import { base } from '$app/paths';
+	import { dev } from '$app/environment';
 </script>
 
 <section
@@ -34,6 +35,7 @@
 							height={500}
 							loading="lazy"
 							class="h-auto w-full transition-transform duration-300 group-hover:scale-110"
+							cdn={dev ? undefined : "netlify"}
 						/>
 						<div
 							class="bg-opacity-0 group-hover:bg-opacity-20 absolute inset-0 transition-opacity duration-300"
@@ -58,6 +60,7 @@
 							height={500}
 							loading="lazy"
 							class="h-auto w-full transition-transform duration-300 group-hover:scale-110"
+							cdn={dev ? undefined : "netlify"}
 						/>
 						<div
 							class="bg-opacity-0 group-hover:bg-opacity-20 absolute inset-0 transition-opacity duration-300"
@@ -82,6 +85,7 @@
 							height={500}
 							loading="lazy"
 							class="h-auto w-full transition-transform duration-300 group-hover:scale-110"
+							cdn={dev ? undefined : "netlify"}
 						/>
 						<div
 							class="bg-opacity-0 group-hover:bg-opacity-20 absolute inset-0 transition-opacity duration-300"
