@@ -1,17 +1,3 @@
-<script lang="ts">
-	import { onMount } from 'svelte';
-
-	let scrollY = $state(0);
-
-	onMount(() => {
-		const handleScroll = () => (scrollY = window.scrollY);
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	});
-</script>
-
-<svelte:window bind:scrollY />
-
 <section id="about" class="relative overflow-hidden bg-black py-20">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<!-- Section header -->
@@ -78,28 +64,3 @@
 		></div>
 	</div>
 </section>
-
-<style>
-	.signature {
-		opacity: 0.8;
-		filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
-	}
-
-	.signature path {
-		stroke-dasharray: 200;
-		stroke-dashoffset: 200;
-		animation: drawSignature 3s ease-in-out infinite;
-	}
-
-	@keyframes drawSignature {
-		0% {
-			stroke-dashoffset: 200;
-		}
-		50% {
-			stroke-dashoffset: 0;
-		}
-		100% {
-			stroke-dashoffset: 0;
-		}
-	}
-</style>

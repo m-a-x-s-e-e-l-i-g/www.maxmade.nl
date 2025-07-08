@@ -12,6 +12,7 @@
 			<h3 class="mb-8 text-center text-2xl font-bold text-white sm:text-3xl">Beats</h3>
 			<div class="space-y-6">
 				<iframe
+					title="SoundCloud Music Player - MAXmade Beats Collection"
 					width="100%"
 					height="300"
 					scrolling="no"
@@ -42,12 +43,12 @@
 			<h3 class="mb-8 text-center text-2xl font-bold text-white sm:text-3xl">Production</h3>
 			<div class="space-y-6">
 				<iframe
+					title="Spotify Music Player - MAXmade Production"
 					style="border-radius:12px"
 					src="https://open.spotify.com/embed/track/46Z7e45RhxCmCcGvMzJWVb?utm_source=generator&theme=0"
 					width="100%"
 					height="152"
 					frameBorder="0"
-					allowfullscreen=""
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 					loading="lazy"
 				></iframe>
