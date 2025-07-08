@@ -133,7 +133,6 @@
 								alt={image.alt}
 								layout="constrained"
 								width={300}
-								height={200}
 								loading="lazy"
 								class="rounded-lg shadow-lg"
 								cdn={dev ? undefined : "netlify"}
