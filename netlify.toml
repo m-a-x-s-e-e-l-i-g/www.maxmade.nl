@@ -5,11 +5,6 @@
 [functions]
   directory = ".netlify/functions-internal"
 
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/render"
-  status = 200
-
 [dev]
   framework = "#custom"
   command = "npm run dev"
