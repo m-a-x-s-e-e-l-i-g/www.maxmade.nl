@@ -117,6 +117,7 @@
 									alt={image.alt}
 									layout="constrained"
 									width={150}
+									height={150}
 									loading="lazy"
 									class="w-full h-auto object-contain"
 									cdn={dev ? undefined : "netlify"}
@@ -133,6 +134,7 @@
 								alt={image.alt}
 								layout="constrained"
 								width={300}
+								height={300}
 								loading="lazy"
 								class="rounded-lg shadow-lg"
 								cdn={dev ? undefined : "netlify"}
@@ -242,6 +244,7 @@
 					alt={selectedImage.alt}
 					layout="constrained"
 					width={1200}
+					height={800}
 					class="h-auto max-h-[calc(100vh-2rem)] w-auto max-w-[calc(100vw-2rem)] rounded-lg object-contain shadow-2xl"
 					cdn={dev ? undefined : "netlify"}
 				/>
