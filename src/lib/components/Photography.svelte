@@ -18,46 +18,43 @@
 	}
 
 	let isModalOpen = false;
-	let selectedImage: { src: string; alt: string } | null = null;
+// selectedImage is now just the index of the selected image, or null if none
+let selectedImage: number | null = null;
 	let currentImageIndex = 0;
 
-	function handleImageClick(e: any) {
-		// Find the index of the clicked image
-		currentImageIndex = images.findIndex((img) => img.src === e.detail.src);
+function handleImageClick(e: any) {
+	// Find the index of the clicked image
+	currentImageIndex = images.findIndex((img) => img.src === e.detail.src);
+
+	if (currentImageIndex === -1) {
+		// If exact match not found, try to find by filename
+		const clickedFilename = e.detail.src.split('/').pop();
+		currentImageIndex = images.findIndex((img) => img.src.includes(clickedFilename));
 
 		if (currentImageIndex === -1) {
-			// If exact match not found, try to find by filename
-			const clickedFilename = e.detail.src.split('/').pop();
-			currentImageIndex = images.findIndex((img) => img.src.includes(clickedFilename));
-
-			if (currentImageIndex === -1) {
-				currentImageIndex = 0; // final fallback
-			}
+			currentImageIndex = 0; // final fallback
 		}
-
-		// Use the clicked image data, but with our fallback alt text
-		selectedImage = {
-			src: e.detail.src,
-			alt: e.detail.alt || images[currentImageIndex]?.alt || 'Photography by MAXmade'
-		};
-		isModalOpen = true;
 	}
 
-	function closeModal() {
-		isModalOpen = false;
-		selectedImage = null;
-		currentImageIndex = 0;
-	}
+	selectedImage = currentImageIndex;
+	isModalOpen = true;
+}
 
-	function goToPrevious() {
-		currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
-		selectedImage = images[currentImageIndex];
-	}
+function closeModal() {
+	isModalOpen = false;
+	selectedImage = null;
+	currentImageIndex = 0;
+}
 
-	function goToNext() {
-		currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
-		selectedImage = images[currentImageIndex];
-	}
+function goToPrevious() {
+	currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
+	selectedImage = currentImageIndex;
+}
+
+function goToNext() {
+	currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
+	selectedImage = currentImageIndex;
+}
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (!isModalOpen) return;
@@ -172,7 +169,7 @@
 </section>
 
 <!-- Full-size image modal -->
-{#if isModalOpen && selectedImage}
+{#if isModalOpen && selectedImage !== null}
 	<!-- Modal overlay -->
 	<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
 	<div
@@ -239,8 +236,8 @@
 			<!-- Image container -->
 			<div class="flex h-full w-full items-center justify-center">
 				<Image
-					src={selectedImage.src}
-					alt={selectedImage.alt}
+					src={images[selectedImage].src}
+					alt={images[selectedImage].alt}
 					layout="constrained"
 					width={1200}
 					height={800}
