@@ -68,6 +68,9 @@
 			</div>
 		</section>
 
+        <h2 class="text-2xl font-bold mb-6">Preview</h2>
+        <img src="/images/projects/veryssh-ssh-keychain-launcher-windows.png" alt="VerySSH Keychain Launcher Preview" class="w-full rounded-lg shadow-lg border border-gray-800 mb-12 object-cover" style="max-height: 400px;">
+
 		<!-- Technical Details -->
 		<section class="mb-12">
 			<h2 class="mb-6 text-2xl font-bold">Technical Details</h2>

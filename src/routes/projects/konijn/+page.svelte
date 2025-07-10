@@ -1,6 +1,7 @@
 
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import AutoScrollScreenshot from '$lib/components/AutoScrollScreenshot.svelte';
 </script>
 
 <svelte:head>
@@ -96,6 +97,14 @@
         <img src="/images/konine/17.jpg" alt="Konijn Artwork 17" class="rounded-lg shadow-lg" />
       </div>
     </section>
+
+    <h2 class="text-2xl font-bold">Preview</h2>
+    <AutoScrollScreenshot
+			src="/images/projects/screenshot-konine-art.jpeg"
+			alt="konine.art Full Website Screenshot"
+			height={400}
+			duration={15}
+		/>
 
     <!-- Project Status -->
     <section>

@@ -1,5 +1,29 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Slideshow from '$lib/components/Slideshow.svelte';
+
+	const screenshots = [
+	{
+		src: '/images/projects/screenshot-pkfr-1.png',
+		alt: 'PKFR.nl Screenshot Freerunning'
+	},
+	{
+		src: '/images/projects/screenshot-pkfr-2.png',
+		alt: 'PKFR.nl Screenshot Parkour Spots'
+	},
+	{
+		src: '/images/projects/screenshot-pkfr-3.png',
+		alt: 'PKFR.nl Screenshot Freerun Gyms'
+	},
+	{
+		src: '/images/projects/screenshot-pkfr-4.png',
+		alt: 'PKFR.nl Spot List Screenshot'
+	},
+	{
+		src: '/images/projects/screenshot-pkfr-5.png',
+		alt: 'PKFR.nl Screenshot Jam Events Calendar Freerunning'
+	}
+	];
 </script>
 
 <svelte:head>
@@ -78,7 +102,7 @@
 		</div>
 	</header>
 
-	<!-- Content -->
+   	<!-- Content -->
 	<main class="mx-auto max-w-4xl px-4 py-12">
 		<!-- Project Overview -->
 		<section class="mb-12">
@@ -202,6 +226,9 @@
 				</div>
 			</div>
 		</section>
+
+		<h2 class="text-2xl font-bold mb-6">Preview</h2>
+		<Slideshow images={screenshots} intervalMs={1500} />
 
 		<!-- Features Showcase -->
 		<section class="mb-12">

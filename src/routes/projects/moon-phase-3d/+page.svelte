@@ -1,5 +1,17 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+import { goto } from '$app/navigation';
+import Slideshow from '$lib/components/Slideshow.svelte';
+
+const screenshots = [
+  {
+	src: '/images/projects/screenshot-moonphase-dogecoin.png',
+	alt: 'Moon Phase 3D Screenshot (Doge mode)'
+  },
+  {
+	src: '/images/projects/screenshot-moonphase.png',
+	alt: 'Moon Phase 3D Screenshot'
+  }
+];
 </script>
 
 <svelte:head>
@@ -146,6 +158,16 @@
 								</svg>
 								Astronomical accuracy
 							</li>
+							<li class="flex items-center">
+								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+									<path
+										fill-rule="evenodd"
+										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+								Doge mode with flying Dogecoin!
+							</li>
 						</ul>
 					</div>
 
@@ -178,6 +200,9 @@
 				</div>
 			</div>
 		</section>
+
+		<h2 class="text-2xl font-bold mb-6">Preview</h2>
+		<Slideshow images={screenshots} intervalMs={1500} />
 
 		<!-- Technical Implementation -->
 		<section class="mb-12">
@@ -280,7 +305,7 @@
 							<li>• Moon phase tracking</li>
 							<li>• Astronomical curiosity</li>
 							<li>• Photography planning</li>
-							<li>• Gardening and natural cycles</li>
+							<li>• Flying Dogecoin</li>
 						</ul>
 					</div>
 				</div>

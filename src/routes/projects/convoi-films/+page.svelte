@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import AutoScrollScreenshot from '$lib/components/AutoScrollScreenshot.svelte';
 </script>
 
 <svelte:head>
@@ -163,6 +164,14 @@
 				</div>
 			</div>
 		</section>
+
+		<h2 class="text-2xl font-bold">Preview</h2>
+		<AutoScrollScreenshot
+			src="/images/projects/screenshot-convoifilms.jpeg"
+			alt="Convoi Films Full Website Screenshot"
+			height={400}
+			duration={15}
+		/>
 
 		<!-- Services -->
 		<section class="mb-12">

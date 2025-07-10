@@ -1,5 +1,29 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Slideshow from '$lib/components/Slideshow.svelte';
+
+	const screenshots = [
+		{
+			src: '/images/projects/screenshot-veryfire-1.png',
+			alt: 'VeryFire Website Screenshot 1'
+		},
+		{
+			src: '/images/projects/screenshot-veryfire-2.png',
+			alt: 'VeryFire Website Screenshot 2'
+		},
+		{
+			src: '/images/projects/screenshot-veryfire-3.png',
+			alt: 'VeryFire Platform Screenshot 3'
+		},
+		{
+			src: '/images/projects/screenshot-veryfire-4.png',
+			alt: 'VeryFire Platform Screenshot 4'
+		},
+		{
+			src: '/images/projects/screenshot-veryfire-5.png',
+			alt: 'VeryFire Platform Screenshot 5'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -169,6 +193,9 @@
 				</div>
 			</div>
 		</section>
+
+		<h2 class="text-2xl font-bold mb-6">Preview</h2>
+		<Slideshow images={screenshots} intervalMs={1500} />
 
 		<!-- Use Cases -->
 		<section class="mb-12">
