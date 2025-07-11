@@ -10,7 +10,7 @@
   command = "npm run dev"
   targetPort = 5173
   publish = "build"
-  autoLaunch = true
+  autoLaunch = false
 
 [[plugins]]
 package = "netlify-plugin-submit-sitemap"
