@@ -197,6 +197,19 @@ export const projects = [
 		category: 'Applications'
 	},
 	{
+		name: 'shopware-6-cart-seeder',
+		displayName: 'Shopware 6 Cart Seeder',
+		description:
+			'Development tool for generating realistic fake customers and shopping carts in Shopware 6 with configurable options.',
+		technologies: ['PHP', 'Shopware'],
+		topics: ['plugin', 'shopping-cart', 'shopware', 'shopware-plugin', 'cart', 'shopware6', 'development'],
+		stars: 1,
+		license: 'MIT',
+		projectPage: '/projects/shopware-6-cart-seeder',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/shopware-6-cart-seeder',
+		category: 'Applications'
+	},
+	{
 		name: 'convoi-films-portfolio',
 		displayName: 'Convoi Films Portfolio Website',
 		description:
