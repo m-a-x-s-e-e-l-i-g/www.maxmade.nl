@@ -29,10 +29,10 @@
 			platform: 'Trakt.tv',
 			icon: '📺',
 			metrics: [
-				{ label: 'Shows', value: '141d 10h 24m' },
-				{ label: 'Episodes', value: '5,602' },
-				{ label: 'Movies', value: '137d 20h 55m' },
-				{ label: 'Films', value: '1,689' }
+				{ label: 'Shows', value: '141d 17h 28m' },
+				{ label: 'Episodes', value: '5,612' },
+				{ label: 'Movies', value: '138d 34m' },
+				{ label: 'Films', value: '1,691' }
 			],
 			color: 'from-red-600 to-red-800',
 			link: 'https://trakt.tv/users/garlfed'
@@ -41,8 +41,8 @@
 			platform: 'Observation.org',
 			icon: '🦋',
 			metrics: [
-				{ label: 'Observations', value: '998' },
-				{ label: 'Species', value: '414' },
+				{ label: 'Observations', value: '1054' },
+				{ label: 'Species', value: '437' },
 				{ label: 'Member since', value: '2024-06-15' },
 				{ label: 'Favorite', value: 'Plants' }
 			],
