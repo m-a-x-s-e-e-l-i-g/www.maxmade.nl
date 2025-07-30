@@ -62,6 +62,11 @@ function generateImagesList() {
 		[allImages[i], allImages[j]] = [allImages[j], allImages[i]];
 	}
 
+	// Add index to each image after shuffling
+	allImages.forEach((image, index) => {
+		image.index = index;
+	});
+
 	const output = {
 		images: allImages,
 		totalCount: allImages.length,

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Gallery from 'svelte-image-gallery';
 	import { Image } from '@unpic/svelte';
 	import generatedImages from '$lib/generated-images.json';
 	import { onMount, onDestroy } from 'svelte';
@@ -18,43 +17,30 @@
 	}
 
 	let isModalOpen = false;
-// selectedImage is now just the index of the selected image, or null if none
-let selectedImage: number | null = null;
+	let selectedImage: number | null = null;
 	let currentImageIndex = 0;
 
-function handleImageClick(e: any) {
-	// Find the index of the clicked image
-	currentImageIndex = images.findIndex((img) => img.src === e.detail.src);
-
-	if (currentImageIndex === -1) {
-		// If exact match not found, try to find by filename
-		const clickedFilename = e.detail.src.split('/').pop();
-		currentImageIndex = images.findIndex((img) => img.src.includes(clickedFilename));
-
-		if (currentImageIndex === -1) {
-			currentImageIndex = 0; // final fallback
-		}
+	function handleImageClick(index: number) {
+		currentImageIndex = index;
+		selectedImage = currentImageIndex;
+		isModalOpen = true;
 	}
 
-	selectedImage = currentImageIndex;
-	isModalOpen = true;
-}
+	function closeModal() {
+		isModalOpen = false;
+		selectedImage = null;
+		currentImageIndex = 0;
+	}
 
-function closeModal() {
-	isModalOpen = false;
-	selectedImage = null;
-	currentImageIndex = 0;
-}
+	function goToPrevious() {
+		currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
+		selectedImage = currentImageIndex;
+	}
 
-function goToPrevious() {
-	currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
-	selectedImage = currentImageIndex;
-}
-
-function goToNext() {
-	currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
-	selectedImage = currentImageIndex;
-}
+	function goToNext() {
+		currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
+		selectedImage = currentImageIndex;
+	}
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (!isModalOpen) return;
@@ -103,11 +89,11 @@ function goToNext() {
 				{#if isMobile}
 					<!-- Mobile: Compact grid layout -->
 					<div class="grid grid-cols-5 gap-1 sm:gap-2">
-						{#each images as image}
+						{#each images as image, index}
 							<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
 							<div
 								class="aspect-square cursor-pointer overflow-hidden rounded transition-opacity hover:opacity-75"
-								on:click={() => handleImageClick({ detail: { src: image.src, alt: image.alt } })}
+								on:click={() => handleImageClick(index)}
 							>
 								<Image
 									src={image.src}
@@ -122,21 +108,27 @@ function goToNext() {
 						{/each}
 					</div>
 				{:else}
-					<!-- Desktop: Masonry layout -->
-					<Gallery on:click={handleImageClick} gap={15} maxColumnWidth={300} hover={true}>
-						{#each images as image}
-							<Image
-								src={image.src}
-								alt={image.alt}
-								layout="constrained"
-								width={300}
-								height={200}
-								loading="lazy"
-								class="rounded-lg shadow-lg"
-								cdn={dev ? undefined : "netlify"}
-							/>
+					<!-- Desktop: Masonry-style grid layout -->
+					<div class="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+						{#each images as image, index}
+							<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
+							<div
+								class="mb-4 cursor-pointer break-inside-avoid transition-opacity hover:opacity-75"
+								on:click={() => handleImageClick(index)}
+							>
+								<Image
+									src={image.src}
+									alt={image.alt}
+									layout="constrained"
+									width={300}
+									height={200}
+									loading="lazy"
+									class="w-full rounded-lg shadow-lg"
+									cdn={dev ? undefined : "netlify"}
+								/>
+							</div>
 						{/each}
-					</Gallery>
+					</div>
 				{/if}
 			{:else}
 				<div class="py-12 text-center">
