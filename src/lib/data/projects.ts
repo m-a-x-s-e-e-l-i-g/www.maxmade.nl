@@ -27,6 +27,19 @@ export const projects = [
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl',
 		category: 'Web'
 	},
+    {
+        name: 'jumpflix-tv',
+        displayName: 'JUMPFLIX',
+        description:
+            'Curated parkour & freerunning films, documentaries, and playlists.',
+        technologies: ['Svelte', 'SvelteKit'],
+        topics: ['streaming', 'video', 'tv', 'entertainment', 'parkour', 'freerunning'],
+        isFeatured: true,
+        liveUrl: 'https://www.jumpflix.tv',
+	        projectPage: '/projects/jumpflix-tv',
+        githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/jumpflix.tv',
+        category: 'Web'
+    },
 	{
 		name: 'current-moon-phase-3d',
 		displayName: 'Moon Phase 3D',
