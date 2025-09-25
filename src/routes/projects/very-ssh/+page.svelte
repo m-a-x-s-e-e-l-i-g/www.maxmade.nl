@@ -1,5 +1,31 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
+	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
+
+	type PillColor = 'orange' | 'blue' | 'emerald' | 'pink' | 'green' | 'gray';
+
+	const tags: Array<{ label: string; color: PillColor }> = [
+		{ label: 'Python', color: 'green' },
+		{ label: 'GUI', color: 'blue' }
+	];
+
+	const overviewDescription =
+		"Very SSH is a minimal, fast GUI application for quickly launching SSH sessions from your ~/.ssh/config. Designed for power users and developers, it provides a simple interface to select and connect to your SSH hosts without typing commands.";
+
+	const highlights = [
+		"Reads and parses your ~/.ssh/config file",
+		'Instant search and filter for hosts',
+		'One-click SSH session launch',
+		'Minimal, distraction-free interface',
+		'Cross-platform (Python, Tkinter)'
+	];
+
+	const stack: Array<{ label: string; color: PillColor }> = [
+		{ label: 'Python', color: 'green' },
+		{ label: 'Tkinter', color: 'blue' }
+	];
+
+	const status = ['Active & Open Source'];
 </script>
 
 <svelte:head>
@@ -11,62 +37,22 @@
 </svelte:head>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
-	<!-- Header -->
-	<header class="border-b border-gray-800 bg-black">
-		<div class="mx-auto max-w-4xl px-4 py-6">
-			<button
-				on:click={() => goto('/#projects')}
-				class="mb-4 inline-flex items-center text-gray-400 transition-colors hover:text-white"
-			>
-				<svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-				</svg>
-				Back to Projects
-			</button>
-
-			<div class="flex items-start justify-between">
-				<div class="flex-1">
-					<h1 class="mb-2 text-4xl font-bold">Very SSH</h1>
-					<p class="mb-4 text-xl text-gray-400">Minimal, Fast SSH Launcher for Power Users</p>
-
-					<div class="mb-6 flex flex-wrap gap-2">
-						<span class="rounded-full bg-green-500 px-3 py-1 text-sm font-medium text-white">Python</span>
-						<span class="rounded-full bg-cyan-500 px-3 py-1 text-sm font-medium text-white">GUI</span>
-					</div>
-				</div>
-
-				<div class="ml-6 flex gap-3">
-					<a
-						href="https://github.com/m-a-x-s-e-e-l-i-g/very-ssh"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-black"
-					>
-						View Code
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	<ProjectHeader
+		title="Very SSH"
+		subtitle="Minimal, Fast SSH Launcher for Power Users"
+		tags={tags}
+		codeUrl="https://github.com/m-a-x-s-e-e-l-i-g/very-ssh"
+		backHref="/#projects"
+	/>
 
 	<!-- Content -->
 	<main class="mx-auto max-w-4xl px-4 py-12">
-		<!-- Project Overview -->
-		<section class="mb-12">
-			<h2 class="mb-6 text-2xl font-bold">Project Overview</h2>
-			<div class="rounded-lg border border-gray-800 bg-black p-8">
-				<p class="mb-6 text-lg leading-relaxed text-gray-300">
-					Very SSH is a minimal, fast GUI application for quickly launching SSH sessions from your <code>~/.ssh/config</code>. Designed for power users and developers, it provides a simple interface to select and connect to your SSH hosts without typing commands.
-				</p>
-				<ul class="space-y-2 text-gray-300">
-					<li>• Reads and parses your <code>~/.ssh/config</code> file</li>
-					<li>• Instant search and filter for hosts</li>
-					<li>• One-click SSH session launch</li>
-					<li>• Minimal, distraction-free interface</li>
-					<li>• Cross-platform (Python, Tkinter)</li>
-				</ul>
-			</div>
-		</section>
+		<ProjectOverview
+			description={overviewDescription}
+			highlights={highlights}
+			stack={stack}
+			status={status}
+		/>
 
         <h2 class="text-2xl font-bold mb-6">Preview</h2>
         <img src="/images/projects/veryssh-ssh-keychain-launcher-windows.png" alt="VerySSH Keychain Launcher Preview" class="w-full rounded-lg shadow-lg border border-gray-800 mb-12 object-cover" style="max-height: 400px;">

@@ -1,29 +1,45 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import Slideshow from '$lib/components/Slideshow.svelte';
+	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
+	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
 	const screenshots = [
-		{
-			src: '/images/projects/screenshot-veryfire-1.png',
-			alt: 'VeryFire Website Screenshot 1'
-		},
-		{
-			src: '/images/projects/screenshot-veryfire-2.png',
-			alt: 'VeryFire Website Screenshot 2'
-		},
-		{
-			src: '/images/projects/screenshot-veryfire-3.png',
-			alt: 'VeryFire Platform Screenshot 3'
-		},
-		{
-			src: '/images/projects/screenshot-veryfire-4.png',
-			alt: 'VeryFire Platform Screenshot 4'
-		},
-		{
-			src: '/images/projects/screenshot-veryfire-5.png',
-			alt: 'VeryFire Platform Screenshot 5'
-		}
+		{ src: '/images/projects/screenshot-veryfire-1.png', alt: 'VeryFire Website Screenshot 1' },
+		{ src: '/images/projects/screenshot-veryfire-2.png', alt: 'VeryFire Website Screenshot 2' },
+		{ src: '/images/projects/screenshot-veryfire-3.png', alt: 'VeryFire Platform Screenshot 3' },
+		{ src: '/images/projects/screenshot-veryfire-4.png', alt: 'VeryFire Platform Screenshot 4' },
+		{ src: '/images/projects/screenshot-veryfire-5.png', alt: 'VeryFire Platform Screenshot 5' }
 	];
+
+	type PillColor = 'orange' | 'blue' | 'emerald' | 'pink' | 'green' | 'gray';
+
+	const tags: Array<{ label: string; color: PillColor }> = [
+		{ label: 'SaaS', color: 'blue' },
+		{ label: 'Email Marketing', color: 'green' },
+		{ label: 'API', color: 'pink' },
+		{ label: 'Web Service', color: 'orange' }
+	];
+
+	const overviewDescription =
+		"VeryFire is a comprehensive email verification service designed to help businesses improve their email deliverability and marketing success rates. The platform validates email addresses for common typos, checks deliverability, and provides blacklist lookups.";
+
+	const highlights = [
+		'Email address validation',
+		'Deliverability checking',
+		'Typo autocorrection',
+		'Blacklist lookup',
+		'CSV file processing',
+		'API & enrichment features (coming soon)'
+	];
+
+	const stack: Array<{ label: string; color: PillColor }> = [
+		{ label: 'Web Application', color: 'gray' },
+		{ label: 'API Development', color: 'gray' },
+		{ label: 'Email Processing', color: 'gray' },
+		{ label: 'SaaS Platform', color: 'gray' }
+	];
+
+	const status = ['Live & Active'];
 </script>
 
 <svelte:head>
@@ -41,158 +57,23 @@
 </svelte:head>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
-	<!-- Header -->
-	<header class="border-b border-gray-800 bg-black">
-		<div class="mx-auto max-w-4xl px-4 py-6">
-			<button
-				onclick={() => goto('/#projects')}
-				class="mb-4 inline-flex items-center text-gray-400 transition-colors hover:text-white"
-			>
-				<svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M15 19l-7-7 7-7"
-					/>
-				</svg>
-				Back to Projects
-			</button>
-
-			<div class="flex items-start justify-between">
-				<div class="flex-1">
-					<h1 class="mb-2 text-4xl font-bold">VeryFire</h1>
-					<p class="mb-4 text-xl text-gray-400">Email Verification & Deliverability Service</p>
-
-					<div class="mb-6 flex flex-wrap gap-2">
-						<span class="rounded-full bg-blue-500 px-3 py-1 text-sm font-medium text-white"
-							>SaaS</span
-						>
-						<span class="rounded-full bg-green-500 px-3 py-1 text-sm font-medium text-white"
-							>Email Marketing</span
-						>
-						<span class="rounded-full bg-purple-500 px-3 py-1 text-sm font-medium text-white"
-							>API</span
-						>
-						<span class="rounded-full bg-orange-500 px-3 py-1 text-sm font-medium text-white"
-							>Web Service</span
-						>
-					</div>
-				</div>
-
-				<div class="ml-6 flex gap-3">
-					<a
-						href="https://www.veryfire.io"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="rounded-lg bg-white px-6 py-3 font-semibold text-black transition-colors hover:bg-gray-200"
-					>
-						Visit Website
-					</a>
-					<a
-						href="https://app.veryfire.io"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-black"
-					>
-						Try App
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	<ProjectHeader
+		title="VeryFire"
+		subtitle="Email Verification & Deliverability Service"
+		tags={tags}
+		visitUrl="https://www.veryfire.io"
+		codeUrl="https://app.veryfire.io"
+		backHref="/#projects"
+	/>
 
 	<!-- Content -->
 	<main class="mx-auto max-w-4xl px-4 py-12">
-		<!-- Project Overview -->
-		<section class="mb-12">
-			<h2 class="mb-6 text-2xl font-bold">Project Overview</h2>
-			<div class="rounded-lg border border-gray-800 bg-black p-8">
-				<p class="mb-6 text-lg leading-relaxed text-gray-300">
-					VeryFire is a comprehensive email verification service designed to help businesses improve
-					their email deliverability and marketing success rates. The platform validates email
-					addresses for common typos, checks deliverability, and provides blacklist lookups.
-				</p>
-
-				<div class="grid gap-8 md:grid-cols-2">
-					<div>
-						<h3 class="mb-4 text-lg font-semibold text-white">Key Features</h3>
-						<ul class="space-y-2 text-gray-300">
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Email address validation
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Deliverability checking
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Typo autocorrection
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Blacklist lookup
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								CSV file processing
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								API & enrichment features (coming soon)
-							</li>
-						</ul>
-					</div>
-
-					<div>
-						<h3 class="mb-4 text-lg font-semibold text-white">Technologies</h3>
-						<div class="flex flex-wrap gap-2">
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">Web Application</span>
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">API Development</span>
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">Email Processing</span>
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">SaaS Platform</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<ProjectOverview
+			description={overviewDescription}
+			highlights={highlights}
+			stack={stack}
+			status={status}
+		/>
 
 		<h2 class="text-2xl font-bold mb-6">Preview</h2>
 		<Slideshow images={screenshots} intervalMs={1500} />

@@ -1,6 +1,38 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import AutoScrollScreenshot from '$lib/components/AutoScrollScreenshot.svelte';
+	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
+	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
+
+	type PillColor = 'orange' | 'blue' | 'emerald' | 'pink' | 'green' | 'gray';
+
+	const tags: Array<{ label: string; color: PillColor }> = [
+		{ label: 'JavaScript', color: 'orange' },
+		{ label: 'PHP', color: 'blue' },
+		{ label: 'HTML5', color: 'orange' },
+		{ label: 'jQuery', color: 'blue' }
+	];
+
+	const overviewDescription =
+		"Convoi Films is a professional portfolio website designed for a video production company specializing in creative filmmaking and videography. The platform features a custom content management system that allows the team to showcase their video work, manage projects, and present their creative portfolio to potential clients.";
+
+	const highlights = [
+		"Video portfolio showcase",
+		'Custom content management',
+		'Project categorization',
+		'Responsive design',
+		'Client testimonials',
+		'Contact integration'
+	];
+
+	const stack: Array<{ label: string; color: PillColor }> = [
+		{ label: 'JavaScript', color: 'gray' },
+		{ label: 'PHP', color: 'gray' },
+		{ label: 'HTML5', color: 'gray' },
+		{ label: 'jQuery', color: 'gray' },
+		{ label: 'CMS', color: 'gray' }
+	];
+
+	const status = ['Live & Active'];
 </script>
 
 <svelte:head>
@@ -18,152 +50,17 @@
 </svelte:head>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
-	<!-- Header -->
-	<header class="border-b border-gray-800 bg-black">
-		<div class="mx-auto max-w-4xl px-4 py-6">
-			<button
-				onclick={() => goto('/#projects')}
-				class="mb-4 inline-flex items-center text-gray-400 transition-colors hover:text-white"
-			>
-				<svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M15 19l-7-7 7-7"
-					/>
-				</svg>
-				Back to Projects
-			</button>
-
-			<div class="flex items-start justify-between">
-				<div class="flex-1">
-					<h1 class="mb-2 text-4xl font-bold">Convoi Films</h1>
-					<p class="mb-4 text-xl text-gray-400">Professional Video Production Portfolio</p>
-
-					<div class="mb-6 flex flex-wrap gap-2">
-						<span class="rounded-full bg-yellow-500 px-3 py-1 text-sm font-medium text-black"
-							>JavaScript</span
-						>
-						<span class="rounded-full bg-indigo-600 px-3 py-1 text-sm font-medium text-white"
-							>PHP</span
-						>
-						<span class="rounded-full bg-orange-500 px-3 py-1 text-sm font-medium text-white"
-							>HTML5</span
-						>
-						<span class="rounded-full bg-blue-400 px-3 py-1 text-sm font-medium text-white"
-							>jQuery</span
-						>
-					</div>
-				</div>
-
-				<div class="ml-6 flex gap-3">
-					<a
-						href="https://www.convoifilms.nl"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="rounded-lg bg-white px-6 py-3 font-semibold text-black transition-colors hover:bg-gray-200"
-					>
-						Visit Website
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	<ProjectHeader
+		title="Convoi Films"
+		subtitle="Professional Video Production Portfolio"
+		tags={tags}
+		visitUrl="https://www.convoifilms.nl"
+		backHref="/#projects"
+	/>
 
 	<!-- Content -->
 	<main class="mx-auto max-w-4xl px-4 py-12">
-		<!-- Project Overview -->
-		<section class="mb-12">
-			<h2 class="mb-6 text-2xl font-bold">Project Overview</h2>
-			<div class="rounded-lg border border-gray-800 bg-black p-8">
-				<p class="mb-6 text-lg leading-relaxed text-gray-300">
-					Convoi Films is a professional portfolio website designed for a video production company
-					specializing in creative filmmaking and videography. The platform features a custom
-					content management system that allows the team to showcase their video work, manage
-					projects, and present their creative portfolio to potential clients.
-				</p>
-
-				<div class="grid gap-8 md:grid-cols-2">
-					<div>
-						<h3 class="mb-4 text-lg font-semibold text-white">Key Features</h3>
-						<ul class="space-y-2 text-gray-300">
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Video portfolio showcase
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Custom content management
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Project categorization
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Responsive design
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Client testimonials
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Contact integration
-							</li>
-						</ul>
-					</div>
-
-					<div>
-						<h3 class="mb-4 text-lg font-semibold text-white">Technologies</h3>
-						<div class="flex flex-wrap gap-2">
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">JavaScript</span>
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">PHP</span>
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">HTML5</span>
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">jQuery</span>
-							<span class="rounded bg-gray-700 px-3 py-1 text-gray-300">CMS</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<ProjectOverview description={overviewDescription} highlights={highlights} stack={stack} status={status} />
 
 		<h2 class="text-2xl font-bold">Preview</h2>
 		<AutoScrollScreenshot

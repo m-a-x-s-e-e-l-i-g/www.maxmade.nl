@@ -1,17 +1,41 @@
 <script lang="ts">
-import { goto } from '$app/navigation';
 import Slideshow from '$lib/components/Slideshow.svelte';
+import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
+import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
 const screenshots = [
-  {
-	src: '/images/projects/screenshot-moonphase-dogecoin.png',
-	alt: 'Moon Phase 3D Screenshot (Doge mode)'
-  },
-  {
-	src: '/images/projects/screenshot-moonphase.png',
-	alt: 'Moon Phase 3D Screenshot'
-  }
+	{ src: '/images/projects/screenshot-moonphase-dogecoin.png', alt: 'Moon Phase 3D Screenshot (Doge mode)' },
+	{ src: '/images/projects/screenshot-moonphase.png', alt: 'Moon Phase 3D Screenshot' }
 ];
+
+type PillColor = 'orange' | 'blue' | 'emerald' | 'pink' | 'green' | 'gray';
+
+const tags: Array<{ label: string; color: PillColor }> = [
+	{ label: 'Svelte', color: 'orange' },
+	{ label: 'Three.js', color: 'blue' },
+	{ label: '3D Graphics', color: 'blue' },
+	{ label: 'Astronomy', color: 'pink' }
+];
+
+const overviewDescription = `Moon Phase 3D is an interactive visualization that displays the current phase of the moon in real-time using Three.js 3D graphics. The application calculates the exact lunar phase based on astronomical data and renders a realistic 3D representation of how the moon appears from Earth.`;
+
+const highlights = [
+	'Real-time lunar phase calculation',
+	'Interactive 3D moon model',
+	'Accurate shadow rendering',
+	'Responsive design',
+	'Astronomical accuracy',
+	'Doge mode with flying Dogecoin!'
+];
+
+const stack: Array<{ label: string; color: PillColor }> = [
+	{ label: 'Svelte', color: 'orange' },
+	{ label: 'Three.js', color: 'blue' },
+	{ label: 'WebGL', color: 'blue' },
+	{ label: 'JavaScript', color: 'pink' }
+];
+
+const status = ['Complete & Open Source'];
 </script>
 
 <svelte:head>
@@ -29,177 +53,18 @@ const screenshots = [
 </svelte:head>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
-	<!-- Header -->
-	<header class="border-b border-gray-800 bg-black">
-		<div class="mx-auto max-w-4xl px-4 py-6">
-			<button
-				onclick={() => goto('/#projects')}
-				class="mb-4 inline-flex items-center text-gray-400 transition-colors hover:text-white"
-			>
-				<svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M15 19l-7-7 7-7"
-					/>
-				</svg>
-				Back to Projects
-			</button>
-
-			<div class="flex items-start justify-between">
-				<div class="flex-1">
-					<h1 class="mb-2 text-4xl font-bold">Moon Phase 3D</h1>
-					<p class="mb-4 text-xl text-gray-400">Real-time 3D Lunar Phase Visualization</p>
-
-					<div class="mb-6 flex flex-wrap gap-2">
-						<span class="rounded-full bg-orange-500 px-3 py-1 text-sm font-medium text-white"
-							>Svelte</span
-						>
-						<span
-							class="rounded-full border border-gray-600 bg-black px-3 py-1 text-sm font-medium text-white"
-							>Three.js</span
-						>
-						<span class="rounded-full bg-blue-500 px-3 py-1 text-sm font-medium text-white"
-							>3D Graphics</span
-						>
-						<span class="rounded-full bg-purple-500 px-3 py-1 text-sm font-medium text-white"
-							>Astronomy</span
-						>
-					</div>
-				</div>
-
-				<div class="ml-6 flex gap-3">
-					<a
-						href="https://moon-phase.netlify.app/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="rounded-lg bg-white px-6 py-3 font-semibold text-black transition-colors hover:bg-gray-200"
-					>
-						Visit Website
-					</a>
-					<a
-						href="https://github.com/m-a-x-s-e-e-l-i-g/current-moon-phase-3d"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-black"
-					>
-						View Code
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	<ProjectHeader
+		title="Moon Phase 3D"
+		subtitle="Real-time 3D Lunar Phase Visualization"
+		tags={tags}
+		visitUrl="https://moon-phase.netlify.app/"
+		codeUrl="https://github.com/m-a-x-s-e-e-l-i-g/current-moon-phase-3d"
+		backHref="/#projects"
+	/>
 
 	<!-- Content -->
 	<main class="mx-auto max-w-4xl px-4 py-12">
-		<!-- Project Overview -->
-		<section class="mb-12">
-			<h2 class="mb-6 text-2xl font-bold">Project Overview</h2>
-			<div class="rounded-lg border border-gray-800 bg-black p-8">
-				<p class="mb-6 text-lg leading-relaxed text-gray-300">
-					Moon Phase 3D is an interactive visualization that displays the current phase of the moon
-					in real-time using Three.js 3D graphics. The application calculates the exact lunar phase
-					based on astronomical data and renders a realistic 3D representation of how the moon
-					appears from Earth.
-				</p>
-
-				<div class="grid gap-8 md:grid-cols-2">
-					<div>
-						<h3 class="mb-4 text-lg font-semibold text-white">Key Features</h3>
-						<ul class="space-y-2 text-gray-300">
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Real-time lunar phase calculation
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Interactive 3D moon model
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Accurate shadow rendering
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Responsive design
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Astronomical accuracy
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Doge mode with flying Dogecoin!
-							</li>
-						</ul>
-					</div>
-
-					<div>
-						<h3 class="mb-4 text-lg font-semibold text-white">Technical Details</h3>
-						<div class="space-y-4">
-							<div>
-								<h4 class="mb-2 font-medium text-white">Technologies Used</h4>
-								<div class="flex flex-wrap gap-2">
-									<span class="rounded bg-orange-500 px-3 py-1 text-white">Svelte</span>
-									<span class="rounded border border-gray-600 bg-black px-3 py-1 text-white"
-										>Three.js</span
-									>
-									<span class="rounded bg-blue-500 px-3 py-1 text-white">WebGL</span>
-									<span class="rounded bg-purple-500 px-3 py-1 text-white">JavaScript</span>
-								</div>
-							</div>
-
-							<div>
-								<h4 class="mb-2 font-medium text-white">Key Concepts</h4>
-								<ul class="space-y-1 text-sm text-gray-300">
-									<li>• Lunar phase calculations</li>
-									<li>• 3D sphere geometry</li>
-									<li>• Dynamic lighting effects</li>
-									<li>• Real-time rendering</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<ProjectOverview description={overviewDescription} highlights={highlights} stack={stack} status={status} />
 
 		<h2 class="text-2xl font-bold mb-6">Preview</h2>
 		<Slideshow images={screenshots} intervalMs={1500} />

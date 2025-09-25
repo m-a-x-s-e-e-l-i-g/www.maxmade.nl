@@ -1,29 +1,45 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import Slideshow from '$lib/components/Slideshow.svelte';
+	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
+	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
 	const screenshots = [
-	{
-		src: '/images/projects/screenshot-pkfr-1.png',
-		alt: 'PKFR.nl Screenshot Freerunning'
-	},
-	{
-		src: '/images/projects/screenshot-pkfr-2.png',
-		alt: 'PKFR.nl Screenshot Parkour Spots'
-	},
-	{
-		src: '/images/projects/screenshot-pkfr-3.png',
-		alt: 'PKFR.nl Screenshot Freerun Gyms'
-	},
-	{
-		src: '/images/projects/screenshot-pkfr-4.png',
-		alt: 'PKFR.nl Spot List Screenshot'
-	},
-	{
-		src: '/images/projects/screenshot-pkfr-5.png',
-		alt: 'PKFR.nl Screenshot Jam Events Calendar Freerunning'
-	}
+		{ src: '/images/projects/screenshot-pkfr-1.png', alt: 'PKFR.nl Screenshot Freerunning' },
+		{ src: '/images/projects/screenshot-pkfr-2.png', alt: 'PKFR.nl Screenshot Parkour Spots' },
+		{ src: '/images/projects/screenshot-pkfr-3.png', alt: 'PKFR.nl Screenshot Freerun Gyms' },
+		{ src: '/images/projects/screenshot-pkfr-4.png', alt: 'PKFR.nl Spot List Screenshot' },
+		{ src: '/images/projects/screenshot-pkfr-5.png', alt: 'PKFR.nl Screenshot Jam Events Calendar Freerunning' }
 	];
+
+	type PillColor = 'orange' | 'blue' | 'emerald' | 'pink' | 'green' | 'gray';
+
+	const tags: Array<{ label: string; color: PillColor }> = [
+		{ label: 'Svelte', color: 'orange' },
+		{ label: 'Community', color: 'blue' },
+		{ label: 'Netherlands', color: 'green' },
+		{ label: 'Parkour', color: 'pink' },
+		{ label: 'Freerunning', color: 'pink' }
+	];
+
+	const overviewDescription = `PKFR.nl serves as the central hub for the Dutch parkour and freerunning community. The platform brings together all essential information about the sport in the Netherlands, including training locations, events, and community connections, making it easier for practitioners to find places to train and connect with others.`;
+
+	const highlights = [
+		'Comprehensive spot database',
+		'Open gym schedules',
+		'Community connections',
+		'Event listings & jams',
+		'Gym finder tool',
+		'WhatsApp community integration'
+	];
+
+	const stack: Array<{ label: string; color: PillColor }> = [
+		{ label: 'Svelte', color: 'orange' },
+		{ label: 'SvelteKit', color: 'blue' },
+		{ label: 'TypeScript', color: 'pink' },
+		{ label: 'TailwindCSS', color: 'green' }
+	];
+
+	const status = ['Live & Maintained'];
 </script>
 
 <svelte:head>
@@ -38,194 +54,18 @@
 </svelte:head>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
-	<!-- Header -->
-	<header class="border-b border-gray-800 bg-black">
-		<div class="mx-auto max-w-4xl px-4 py-6">
-			<button
-				onclick={() => goto('/#projects')}
-				class="mb-4 inline-flex items-center text-gray-400 transition-colors hover:text-white"
-			>
-				<svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M15 19l-7-7 7-7"
-					/>
-				</svg>
-				Back to Projects
-			</button>
+	<ProjectHeader
+		title="PKFR.nl"
+		subtitle="Nederlandse Parkour & Freerunning Community Hub"
+		tags={tags}
+		visitUrl="https://www.pkfr.nl"
+		codeUrl="https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl"
+		backHref="/#projects"
+	/>
 
-			<div class="flex items-start justify-between">
-				<div class="flex-1">
-					<h1 class="mb-2 text-4xl font-bold">PKFR.nl</h1>
-					<p class="mb-4 text-xl text-gray-400">Nederlandse Parkour & Freerunning Community Hub</p>
-
-					<div class="mb-6 flex flex-wrap gap-2">
-						<span class="rounded-full bg-orange-500 px-3 py-1 text-sm font-medium text-white"
-							>Svelte</span
-						>
-						<span class="rounded-full bg-blue-500 px-3 py-1 text-sm font-medium text-white"
-							>Community</span
-						>
-						<span class="rounded-full bg-green-500 px-3 py-1 text-sm font-medium text-white"
-							>Netherlands</span
-						>
-						<span class="rounded-full bg-purple-500 px-3 py-1 text-sm font-medium text-white"
-							>Parkour</span
-						>
-						<span class="rounded-full bg-red-500 px-3 py-1 text-sm font-medium text-white"
-							>Freerunning</span
-						>
-					</div>
-				</div>
-
-				<div class="ml-6 flex gap-3">
-					<a
-						href="https://www.pkfr.nl"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="rounded-lg bg-white px-6 py-3 font-semibold text-black transition-colors hover:bg-gray-200"
-					>
-						Visit Website
-					</a>
-					<a
-						href="https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white transition-colors hover:bg-white hover:text-black"
-					>
-						View Code
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
-
-   	<!-- Content -->
+	<!-- Content -->
 	<main class="mx-auto max-w-4xl px-4 py-12">
-		<!-- Project Overview -->
-		<section class="mb-12">
-			<h2 class="mb-6 text-2xl font-bold">Project Overview</h2>
-			<div class="rounded-lg border border-gray-800 bg-black p-8">
-				<p class="mb-6 text-lg leading-relaxed text-gray-300">
-					PKFR.nl serves as the central hub for the Dutch parkour and freerunning community. The
-					platform brings together all essential information about the sport in the Netherlands,
-					including training locations, events, and community connections, making it easier for
-					practitioners to find places to train and connect with others.
-				</p>
-
-				<div class="grid gap-8 md:grid-cols-2">
-					<div>
-						<h3 class="mb-4 text-lg font-semibold text-white">Key Features</h3>
-						<ul class="space-y-2 text-gray-300">
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Comprehensive spot database
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Open gym schedules
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Community connections
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Event listings & jams
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Gym finder tool
-							</li>
-							<li class="flex items-center">
-								<svg class="mr-3 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								WhatsApp community integration
-							</li>
-						</ul>
-					</div>
-
-					<div>
-						<h3 class="mb-4 text-lg font-semibold text-white">Technical Stack</h3>
-						<div class="mb-6 flex flex-wrap gap-2">
-							<span class="rounded bg-orange-500 px-3 py-1 text-white">Svelte</span>
-							<span class="rounded bg-blue-500 px-3 py-1 text-white">SvelteKit</span>
-							<span class="rounded bg-purple-500 px-3 py-1 text-white">TypeScript</span>
-							<span class="rounded bg-green-500 px-3 py-1 text-white">TailwindCSS</span>
-						</div>
-
-						<h3 class="mb-4 text-lg font-semibold text-white">Project Stats</h3>
-						<div class="space-y-2 text-gray-300">
-							<div class="flex items-center">
-								<svg class="mr-2 h-4 w-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-									/>
-								</svg>
-								1 GitHub Star
-							</div>
-							<div class="flex items-center">
-								<svg class="mr-2 h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								GPL-3.0 License
-							</div>
-							<div class="flex items-center">
-								<svg class="mr-2 h-4 w-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-									<path
-										fill-rule="evenodd"
-										d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								Open Source
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<ProjectOverview description={overviewDescription} highlights={highlights} stack={stack} status={status} />
 
 		<h2 class="text-2xl font-bold mb-6">Preview</h2>
 		<Slideshow images={screenshots} intervalMs={1500} />
