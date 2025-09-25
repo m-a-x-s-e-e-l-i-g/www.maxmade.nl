@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Image } from '@unpic/svelte';
+	import { Image as UnpicImage } from '@unpic/svelte';
 	import generatedImages from '$lib/generated-images.json';
 	import { onMount, onDestroy } from 'svelte';
 	import { browser, dev } from '$app/environment';
@@ -7,245 +7,142 @@
 	// Use the generated images
 	const images = generatedImages.images;
 
-	// Track if we're on mobile
-	let isMobile = false;
+	// Background slideshow: quick, glitchy cycling
+	const MAX_BG = 24;
+	const bgImages = [...images].sort(() => Math.random() - 0.5).slice(0, MAX_BG);
+	let bgIndex = 0;
+	let intervalId: any;
 
-	function checkMobile() {
-		if (browser) {
-			isMobile = window.innerWidth < 768; // md breakpoint
-		}
-	}
 
-	let isModalOpen = false;
-	let selectedImage: number | null = null;
-	let currentImageIndex = 0;
-
-	function handleImageClick(index: number) {
-		currentImageIndex = index;
-		selectedImage = currentImageIndex;
-		isModalOpen = true;
-	}
-
-	function closeModal() {
-		isModalOpen = false;
-		selectedImage = null;
-		currentImageIndex = 0;
-	}
-
-	function goToPrevious() {
-		currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
-		selectedImage = currentImageIndex;
-	}
-
-	function goToNext() {
-		currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
-		selectedImage = currentImageIndex;
-	}
-
-	function handleKeydown(e: KeyboardEvent) {
-		if (!isModalOpen) return;
-
-		e.preventDefault();
-		if (e.key === 'Escape') {
-			closeModal();
-		} else if (e.key === 'ArrowLeft') {
-			goToPrevious();
-		} else if (e.key === 'ArrowRight') {
-			goToNext();
-		}
-	}
-
-	// Add global keyboard listener only in browser
+	// Start cycling through background images
 	onMount(() => {
-		if (browser) {
-			document.addEventListener('keydown', handleKeydown);
-			checkMobile();
-			window.addEventListener('resize', checkMobile);
-		}
+		if (!browser || bgImages.length === 0) return;
+		intervalId = setInterval(() => {
+			bgIndex = (bgIndex + 1) % bgImages.length;
+		}, 1200); // quick
 	});
 
 	onDestroy(() => {
-		if (browser) {
-			document.removeEventListener('keydown', handleKeydown);
-			window.removeEventListener('resize', checkMobile);
-		}
+		if (intervalId) clearInterval(intervalId);
 	});
 </script>
 
-<section id="photography" class="bg-black py-20">
-	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-		<!-- Section header -->
-		<div class="mb-16 text-center">
-			<h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl">Photography</h2>
-			<div class="mx-auto mb-6 h-1 w-24 bg-white"></div>
-			<p class="mx-auto max-w-3xl text-xl text-gray-400">
-				A chaotic stream of moments captured through my lens.
-			</p>
-		</div>
 
-		<!-- Gallery -->
-		<div class="mb-16">
-			{#if images.length > 0}
-				{#if isMobile}
-					<!-- Mobile: Compact grid layout -->
-					<div class="grid grid-cols-5 gap-1 sm:gap-2">
-						{#each images as image, index}
-							<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
-							<div
-								class="aspect-square cursor-pointer overflow-hidden rounded transition-opacity hover:opacity-75"
-								on:click={() => handleImageClick(index)}
-							>
-								<Image
-									src={image.src}
-									alt={image.alt}
-									layout="constrained"
-									width={150}
-									height={150}
-									loading="lazy"
-									class="h-full w-full object-cover"
-								/>
-							</div>
-						{/each}
-					</div>
-				{:else}
-					<!-- Desktop: Masonry-style grid layout -->
-					<div class="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
-						{#each images as image, index}
-							<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
-							<div
-								class="mb-4 cursor-pointer break-inside-avoid transition-opacity hover:opacity-75"
-								on:click={() => handleImageClick(index)}
-							>
-								<Image
-									src={image.src}
-									alt={image.alt}
-									layout="constrained"
-									width={300}
-									height={200}
-									loading="lazy"
-									class="w-full rounded-lg shadow-lg"
-									cdn={dev ? undefined : "netlify"}
-								/>
-							</div>
-						{/each}
-					</div>
-				{/if}
-			{:else}
-				<div class="py-12 text-center">
-					<p class="text-gray-400">No images found.</p>
-				</div>
-			{/if}
-		</div>
-
-		<!-- Call to action -->
-		<div class="text-center">
-			<p class="mb-6 text-gray-400">Want to see my complete photography portfolio?</p>
-			<a
-				href="https://albums.maxmade.nl/"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="inline-flex items-center rounded-lg border-2 border-white px-8 py-3 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black"
-			>
-				Visit Full Gallery
-				<svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+<section id="photography" class="relative bg-black py-20 overflow-hidden">
+	<!-- Background slideshow layer (covers entire section) -->
+	<div class="pointer-events-none absolute inset-0 z-0">
+		{#if bgImages.length > 0}
+			{#key bgIndex}
+				<div class="absolute inset-0 animate-superZoom" style="filter: url('#svgTripGlitch');">
+					<UnpicImage
+						src={bgImages[bgIndex].src}
+						alt=""
+						aria-hidden="true"
+						layout="constrained"
+						width={1920}
+						height={1080}
+						loading="eager"
+						class="h-full w-full object-cover opacity-65"
+						cdn={dev ? undefined : 'netlify'}
 					/>
-				</svg>
-			</a>
+				</div>
+			{/key}
+		{/if}
+		<!-- Readability overlay adapts to background brightness -->
+		<div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/85"></div>
+	</div>
+
+	<div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<!-- Adaptive readability container -->
+		<div class="mx-auto max-w-4xl rounded-2xl ring-1 ring-white/10 bg-black/40" style="backdrop-filter: brightness(1.1) blur(3px) saturate(1.1); -webkit-backdrop-filter: brightness(1.1) blur(3px) saturate(1.1);">
+			<!-- Section header -->
+			<div class="mb-8 text-center px-6 pt-6 md:px-10 md:pt-10">
+				<h2 class="mb-4 text-4xl font-bold text-white sm:text-5xl text-glow">Photography</h2>
+				<div class="mx-auto mb-6 h-1 w-24 bg-white/90"></div>
+				<p class="mx-auto max-w-3xl text-xl text-gray-300 text-glow">A chaotic stream of moments captured through my lens.</p>
+			</div>
+
+			<!-- Call to action -->
+			<div class="text-center px-6 pb-6 md:px-10 md:pb-10">
+				<p class="mb-6 text-gray-300 text-glow">Want to see my complete photography portfolio?</p>
+				<a
+					href="https://albums.maxmade.nl/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center rounded-lg border-2 border-white/90 px-8 py-3 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black shadow-[0_1px_2px_rgba(0,0,0,0.6)] text-glow"
+				>
+					Visit Full Gallery
+					<svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+					</svg>
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
+<!-- SVG defs for super glitchy filter -->
+<svg class="absolute h-0 w-0" aria-hidden="true">
+	<defs>
+		<filter id="svgTripGlitch">
+			<!-- Animated noise source -->
+			<feTurbulence type="fractalNoise" baseFrequency="0.003 0.02" numOctaves="1" seed="2" result="noise">
+				<animate attributeName="baseFrequency" values="0.003 0.02;0.008 0.02;0.002 0.03;0.006 0.015;0.003 0.02" dur="3.8s" repeatCount="indefinite"/>
+				<animate attributeName="seed" values="1;3;5;7;9;2" dur="6s" repeatCount="indefinite"/>
+			</feTurbulence>
 
-<!-- Full-size image modal -->
-{#if isModalOpen && selectedImage !== null}
-	<!-- Modal overlay -->
-	<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
-	<div
-		class="bg-opacity-90 fixed inset-0 z-50 flex items-center justify-center bg-black p-4"
-		on:click={closeModal}
-		role="dialog"
-		aria-modal="true"
-		aria-label="Image viewer"
-		tabindex="-1"
-	>
-		<div class="relative flex h-full w-full items-center justify-center">
-			<!-- Close button -->
-			<button
-				class="absolute top-4 right-4 z-10 text-white transition-colors hover:text-gray-300"
-				on:click={closeModal}
-				aria-label="Close modal"
-			>
-				<svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M6 18L18 6M6 6l12 12"
-					/>
-				</svg>
-			</button>
+			<!-- Displace the source with noise -->
+			<feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G" result="displaced">
+				<animate attributeName="scale" values="0;14;4;20;0;8;0" dur="4.2s" repeatCount="indefinite"/>
+			</feDisplacementMap>
 
-			<!-- Previous button -->
-			{#if images.length > 1}
-				<button
-					class="bg-opacity-50 hover:bg-opacity-75 absolute top-1/2 left-4 z-10 -translate-y-1/2 rounded-full bg-black p-2 text-white transition-colors hover:text-gray-300"
-					on:click|stopPropagation={goToPrevious}
-					aria-label="Previous image"
-				>
-					<svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M15 19l-7-7 7-7"
-						/>
-					</svg>
-				</button>
-			{/if}
+			<!-- Split channels -->
+			<feColorMatrix in="displaced" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red"/>
+			<feColorMatrix in="displaced" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="green"/>
+			<feColorMatrix in="displaced" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="blue"/>
 
-			<!-- Next button -->
-			{#if images.length > 1}
-				<button
-					class="bg-opacity-50 hover:bg-opacity-75 absolute top-1/2 right-4 z-10 -translate-y-1/2 rounded-full bg-black p-2 text-white transition-colors hover:text-gray-300"
-					on:click|stopPropagation={goToNext}
-					aria-label="Next image"
-				>
-					<svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M9 5l7 7-7 7"
-						/>
-					</svg>
-				</button>
-			{/if}
+			<!-- Offset channels differently -->
+			<feOffset in="red" dx="-3" dy="0" result="redOffset">
+				<animate attributeName="dx" values="-8;0;-3;0;-10;0" dur="2.6s" repeatCount="indefinite"/>
+			</feOffset>
+			<feOffset in="green" dx="2" dy="0" result="greenOffset">
+				<animate attributeName="dx" values="6;0;2;0;4;0" dur="3.1s" repeatCount="indefinite"/>
+			</feOffset>
+			<feOffset in="blue" dx="1" dy="0" result="blueOffset">
+				<animate attributeName="dx" values="4;0;1;0;3;0" dur="2.2s" repeatCount="indefinite"/>
+			</feOffset>
 
-			<!-- Image container -->
-			<div class="flex h-full w-full items-center justify-center">
-				<Image
-					src={images[selectedImage].src}
-					alt={images[selectedImage].alt}
-					layout="constrained"
-					width={1200}
-					height={800}
-					class="h-auto max-h-[calc(100vh-2rem)] w-auto max-w-[calc(100vw-2rem)] rounded-lg object-contain shadow-2xl"
-					loading="eager"
-				/>
-			</div>
+			<!-- Blend channels back together -->
+			<feBlend in="redOffset" in2="greenOffset" mode="screen" result="rg"/>
+			<feBlend in="rg" in2="blueOffset" mode="screen" result="rgb"/>
 
-			<!-- Image counter -->
-			{#if images.length > 1}
-				<div
-					class="bg-opacity-50 absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black px-3 py-1 text-sm text-white"
-				>
-					{currentImageIndex + 1} / {images.length}
-				</div>
-			{/if}
-		</div>
-	</div>
-{/if}
+			<!-- Slight saturation boost -->
+			<feColorMatrix in="rgb" type="saturate" values="1.2" result="sat"/>
+
+			<!-- Output -->
+			<feComposite in="sat" in2="SourceGraphic" operator="lighter"/>
+		</filter>
+	</defs>
+</svg>
+<!-- No modal/preview: images are decorative background only -->
+
+<style>
+/* Glitchy super-zoom swap */
+.animate-superZoom {
+	animation: superZoom 260ms cubic-bezier(0.19, 1, 0.22, 1);
+	will-change: transform, filter;
+}
+
+@keyframes superZoom {
+	0% { transform: scale(1.6) skewX(2deg); filter: blur(2px) contrast(120%); }
+	45% { transform: scale(1.1) skewX(-1deg); filter: blur(1px) contrast(150%); }
+	60% { transform: scale(1.3) skewX(1deg); filter: blur(0.5px) contrast(130%); }
+	80% { transform: scale(1.02); }
+	100% { transform: scale(1); }
+}
+
+/* Subtle text glow for readability */
+.text-glow {
+  text-shadow: 0 1px 1px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.35);
+}
+
+</style>
