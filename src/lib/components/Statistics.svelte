@@ -20,8 +20,9 @@
 			platform: 'Xbox Gaming',
 			icon: '🎮',
 			metrics: [
-				{ label: 'Gamerscore', value: '11,430' },
-				{ label: 'Games Played', value: '30+' }
+				// Updated 2025-09-29 via xboxgamertag.com
+				{ label: 'Gamerscore', value: '11,535' },
+				{ label: 'Games Played', value: '30' }
 			],
 			color: 'from-green-600 to-green-800',
 			link: 'https://xboxgamertag.com/search/Snurkpop'
@@ -30,10 +31,11 @@
 			platform: 'Trakt.tv',
 			icon: '📺',
 			metrics: [
-				{ label: 'Shows', value: '141d 17h 28m' },
-				{ label: 'Episodes', value: '5,612' },
-				{ label: 'Movies', value: '138d 34m' },
-				{ label: 'Films', value: '1,691' }
+				// Updated 2025-09-29 from profile page (All Time watched)
+				{ label: 'Shows', value: '144d 2h' },
+				{ label: 'Episodes', value: '5,675' },
+				{ label: 'Movies', value: '138d 20h 3m' },
+				{ label: 'Films', value: '1,701' }
 			],
 			color: 'from-red-600 to-red-800',
 			link: 'https://trakt.tv/users/garlfed'
@@ -42,8 +44,9 @@
 			platform: 'Observation.org',
 			icon: '🦋',
 			metrics: [
-				{ label: 'Observations', value: '1054' },
-				{ label: 'Species', value: '437' },
+				// Updated manually 2025-09-29
+				{ label: 'Observations', value: '1070' },
+				{ label: 'Species', value: '439' },
 				{ label: 'Member since', value: '2024-06-15' },
 				{ label: 'Favorite', value: 'Plants' }
 			],
