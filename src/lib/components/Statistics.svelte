@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import CountUp from './CountUp.svelte';
 
 	// Static data based on scraped information
 	const stats = [
@@ -56,6 +57,16 @@
 	onMount(() => {
 		mounted = true;
 	});
+
+	/** Helper: determine if a value is a pure countable number (possibly with commas or trailing +) */
+	function parseNumeric(value: string): { numeric: number; suffix: string; valid: boolean } {
+		// Reject if contains letters (allows +)
+		if (/[^0-9,+]/.test(value)) return { numeric: 0, suffix: '', valid: false };
+		const plus = value.endsWith('+');
+		const core = value.replace(/[^0-9]/g, '');
+		if (!core) return { numeric: 0, suffix: '', valid: false };
+		return { numeric: Number(core), suffix: plus ? '+' : '', valid: true };
+	}
 </script>
 
 <section id="statistics" class="py-20 bg-gray-900">
@@ -98,7 +109,15 @@
 							{#each stat.metrics as metric}
 								<div class="flex justify-between items-center">
 									<span class="text-gray-300 text-sm">{metric.label}</span>
-									<span class="text-white font-semibold">{metric.value}</span>
+									<span class="text-white font-semibold">
+										{#if parseNumeric(metric.value).valid}
+											{#key metric.value}
+												<CountUp from={0} to={parseNumeric(metric.value).numeric} duration={1800} suffix={parseNumeric(metric.value).suffix} />
+											{/key}
+										{:else}
+											{metric.value}
+										{/if}
+									</span>
 								</div>
 							{/each}
 						</div>
