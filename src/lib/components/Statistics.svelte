@@ -20,8 +20,8 @@
 			platform: 'Xbox Gaming',
 			icon: '🎮',
 			metrics: [
-				// Updated 2025-09-29 via xboxgamertag.com
-				{ label: 'Gamerscore', value: '11,535' },
+				// Updated 2026-02-13 via xboxgamertag.com
+				{ label: 'Gamerscore', value: '11,575' },
 				{ label: 'Games Played', value: '30' }
 			],
 			color: 'from-green-600 to-green-800',
