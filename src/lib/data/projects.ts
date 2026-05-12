@@ -26,7 +26,7 @@ export const projects: Project[] = [
 		isFeatured: true,
 		liveUrl: 'https://www.veryfire.io',
 		projectPage: '/projects/veryfire',
-		brandImage: '/images/projects/icons/veryfire.svg',
+		brandImage: 'https://www.veryfire.io/favicon.png',
 		category: 'Web'
 	},
 	{
