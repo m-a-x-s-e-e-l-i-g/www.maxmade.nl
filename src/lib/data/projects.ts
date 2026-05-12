@@ -26,7 +26,7 @@ export const projects: Project[] = [
 		isFeatured: true,
 		liveUrl: 'https://www.veryfire.io',
 		projectPage: '/projects/veryfire',
-		brandImage: '/images/projects/brand/veryfire.svg',
+		brandImage: '/images/projects/icons/veryfire.svg',
 		category: 'Web'
 	},
 	{
@@ -56,7 +56,7 @@ export const projects: Project[] = [
 		liveUrl: 'https://www.jumpflix.tv',
 		projectPage: '/projects/jumpflix-tv',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/jumpflix.tv',
-		brandImage: '/images/projects/brand/jumpflix.svg',
+		brandImage: '/images/projects/icons/jumpflix.png',
 		category: 'Web'
 	},
 	{
@@ -64,14 +64,15 @@ export const projects: Project[] = [
 		displayName: 'SessionGoals',
 		description:
 			'Training companion for parkour and freerunning athletes to set goals, track sessions, and follow challenge lists.',
-		technologies: ['Svelte', 'SvelteKit'],
+		technologies: ['Svelte', 'SvelteKit', 'Supabase'],
 		topics: ['activity-tracker', 'freerunning', 'parkour', 'goals', 'training'],
 		stars: 1,
 		license: 'GPL-3.0',
 		isFeatured: true,
-		liveUrl: 'https://sessiongoals.maxmade.nl/',
+		liveUrl: 'https://sessiongoals.com/',
+		projectPage: '/projects/sessiongoals',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/SessionGoals',
-		brandImage: '/images/projects/brand/sessiongoals.svg',
+		brandImage: '/images/projects/icons/sessiongoals.svg',
 		category: 'Web'
 	},
 	{

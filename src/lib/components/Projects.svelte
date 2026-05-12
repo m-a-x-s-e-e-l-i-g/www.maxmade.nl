@@ -50,20 +50,17 @@
 				>
 					<!-- Project header -->
 					<div class="flex flex-1 flex-col p-6">
-						{#if project.brandImage}
-							<div class="mb-5 rounded-lg border border-gray-800 bg-gray-950 p-4">
-								<img
-									src={project.brandImage}
-									alt="{project.displayName || project.name} brand"
-									class="h-16 w-full object-contain"
-									loading="lazy"
-								/>
-							</div>
-						{/if}
-
 						<div class="mb-4 flex items-start justify-between">
 							<div class="flex-1">
 								<div class="mb-2 flex items-center gap-2">
+									{#if project.brandImage}
+										<img
+											src={project.brandImage}
+											alt="{project.displayName || project.name} icon"
+											class="h-7 w-7 flex-shrink-0 rounded-lg object-cover"
+											loading="lazy"
+										/>
+									{/if}
 									<h3
 										class="text-xl font-semibold text-white transition-colors group-hover:text-gray-200"
 									>
