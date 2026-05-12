@@ -29,7 +29,7 @@
 
 		<!-- Category filter -->
 		<div class="mb-12 flex flex-wrap justify-center gap-3">
-			{#each categories as category}
+			{#each categories as category (category)}
 				<button
 					onclick={() => (selectedCategory = category)}
 					class="rounded-lg px-4 py-2 font-medium transition-all duration-300 {selectedCategory ===
@@ -44,7 +44,7 @@
 
 		<!-- Projects grid -->
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-			{#each displayedProjects() as project}
+			{#each displayedProjects() as project (project.name)}
 				<div
 					class="group flex flex-col overflow-hidden rounded-lg border border-gray-800 bg-black transition-colors hover:border-gray-600"
 				>
@@ -85,7 +85,7 @@
 						<div class="flex flex-1 flex-col justify-end">
 							<!-- Technologies -->
 							<div class="mb-4 flex flex-wrap gap-2">
-								{#each project.technologies as tech}
+								{#each project.technologies as tech (tech)}
 									<span
 										class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-white {getTechColor(
 											tech
@@ -98,7 +98,7 @@
 
 							<!-- Topics -->
 							<div class="mb-4 flex flex-wrap gap-1">
-								{#each project.topics.slice(0, 4) as topic}
+								{#each project.topics.slice(0, 4) as topic (topic)}
 									<span class="inline-block rounded bg-gray-800 px-2 py-1 text-xs text-gray-400">
 										#{topic}
 									</span>
