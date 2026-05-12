@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">VeryFire.io</title>
+  <desc id="desc">VeryFire email verification brand mark</desc>
+  <rect width="320" height="96" rx="18" fill="#0f172a"/>
+  <path d="M43 28h50c4.4 0 8 3.6 8 8v24c0 4.4-3.6 8-8 8H43c-4.4 0-8-3.6-8-8V36c0-4.4 3.6-8 8-8Z" fill="#14b8a6"/>
+  <path d="m39 36 29 20 29-20" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90 21c8 7 11 15 7 25-3-7-7-11-13-14 1-5 3-8 6-11Z" fill="#f97316"/>
+  <text x="119" y="58" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800">VeryFire</text>
+  <text x="260" y="58" fill="#14b8a6" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">.io</text>
+</svg>

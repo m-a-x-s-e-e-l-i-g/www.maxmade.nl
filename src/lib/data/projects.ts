@@ -1,5 +1,21 @@
 // Complete projects portfolio data
-export const projects = [
+export interface Project {
+	name: string;
+	displayName?: string;
+	description: string;
+	technologies: string[];
+	topics: string[];
+	stars?: number;
+	license?: string;
+	isFeatured?: boolean;
+	liveUrl?: string;
+	projectPage?: string;
+	githubUrl?: string;
+	brandImage?: string;
+	category: string;
+}
+
+export const projects: Project[] = [
 	{
 		name: 'VeryFire',
 		displayName: 'VeryFire.io',
@@ -10,6 +26,7 @@ export const projects = [
 		isFeatured: true,
 		liveUrl: 'https://www.veryfire.io',
 		projectPage: '/projects/veryfire',
+		brandImage: '/images/projects/brand/veryfire.svg',
 		category: 'Web'
 	},
 	{
@@ -19,7 +36,7 @@ export const projects = [
 			'Central hub for the Dutch parkour and freerunning community with spots, events, and community connections.',
 		technologies: ['Svelte', 'SvelteKit'],
 		topics: ['community', 'netherlands', 'parkour', 'freerunning', 'freerun'],
-		stars: 2,
+		stars: 3,
 		license: 'GPL-3.0',
 		isFeatured: true,
 		liveUrl: 'https://www.pkfr.nl',
@@ -27,19 +44,36 @@ export const projects = [
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/pkfr-nl',
 		category: 'Web'
 	},
-    {
-        name: 'jumpflix-tv',
-        displayName: 'JUMPFLIX',
-        description:
-            'Curated parkour & freerunning films, documentaries, and playlists.',
-        technologies: ['Svelte', 'SvelteKit'],
-        topics: ['streaming', 'video', 'tv', 'entertainment', 'parkour', 'freerunning'],
-        isFeatured: true,
-        liveUrl: 'https://www.jumpflix.tv',
-	        projectPage: '/projects/jumpflix-tv',
-        githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/jumpflix.tv',
-        category: 'Web'
-    },
+	{
+		name: 'jumpflix-tv',
+		displayName: 'JUMPFLIX',
+		description: 'Curated parkour & freerunning films, documentaries, and playlists.',
+		technologies: ['Svelte', 'SvelteKit'],
+		topics: ['streaming', 'video', 'tv', 'entertainment', 'parkour', 'freerunning'],
+		stars: 2,
+		license: 'GPL-3.0',
+		isFeatured: true,
+		liveUrl: 'https://www.jumpflix.tv',
+		projectPage: '/projects/jumpflix-tv',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/jumpflix.tv',
+		brandImage: '/images/projects/brand/jumpflix.svg',
+		category: 'Web'
+	},
+	{
+		name: 'SessionGoals',
+		displayName: 'SessionGoals',
+		description:
+			'Training companion for parkour and freerunning athletes to set goals, track sessions, and follow challenge lists.',
+		technologies: ['Svelte', 'SvelteKit'],
+		topics: ['activity-tracker', 'freerunning', 'parkour', 'goals', 'training'],
+		stars: 1,
+		license: 'GPL-3.0',
+		isFeatured: true,
+		liveUrl: 'https://sessiongoals.maxmade.nl/',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/SessionGoals',
+		brandImage: '/images/projects/brand/sessiongoals.svg',
+		category: 'Web'
+	},
 	{
 		name: 'current-moon-phase-3d',
 		displayName: 'Moon Phase 3D',
@@ -72,7 +106,7 @@ export const projects = [
 			'Comprehensive guide to upgrade Renault/Dacia MediaNav systems to Evolution firmware.',
 		technologies: ['Shell', 'Documentation'],
 		topics: ['renault', 'dacia', 'medianav', 'firmware', 'automotive'],
-		stars: 13,
+		stars: 22,
 		license: 'GPL-3.0',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade',
 		category: 'Docs & Tools'
@@ -84,9 +118,9 @@ export const projects = [
 			'Utilities to convert and manipulate LGU firmware files for Renault/Dacia MediaNav systems.',
 		technologies: ['Python'],
 		topics: ['converter', 'renault', 'dacia', 'lgu', 'medianav', 'firmware'],
-		stars: 5,
+		stars: 6,
 		license: 'MIT',
-		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/LGU-file-Tools',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/LGU-file-tools',
 		category: 'Docs & Tools'
 	},
 	{
@@ -128,7 +162,8 @@ export const projects = [
 	{
 		name: 'project-infinitisphere',
 		displayName: 'InfinitiSphere QR Generator',
-		description: 'A playful "covert" QR code generator with a spy mission theme for golf driving ranges.',
+		description:
+			'A playful "covert" QR code generator with a spy mission theme for golf driving ranges.',
 		technologies: ['Svelte'],
 		topics: ['qrcode', 'svelte', 'qrcode-generator', 'golf', 'tracking'],
 		stars: 0,
@@ -143,7 +178,7 @@ export const projects = [
 			'Comprehensive dataset of common email domain typos with suggested corrections for validation systems.',
 		technologies: ['Data', 'Shell'],
 		topics: ['list', 'spellcheck', 'email', 'domains', 'autocorrect', 'dataset'],
-		stars: 2,
+		stars: 4,
 		license: 'GPL-3.0',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/common-email-domain-typos',
 		category: 'Docs & Tools'
@@ -215,8 +250,16 @@ export const projects = [
 		description:
 			'Development tool for generating realistic fake customers and shopping carts in Shopware 6 with configurable options.',
 		technologies: ['PHP', 'Shopware'],
-		topics: ['plugin', 'shopping-cart', 'shopware', 'shopware-plugin', 'cart', 'shopware6', 'development'],
-		stars: 1,
+		topics: [
+			'plugin',
+			'shopping-cart',
+			'shopware',
+			'shopware-plugin',
+			'cart',
+			'shopware6',
+			'development'
+		],
+		stars: 2,
 		license: 'MIT',
 		projectPage: '/projects/shopware-6-cart-seeder',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/shopware-6-cart-seeder',

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">JUMPFLIX</title>
+  <desc id="desc">JUMPFLIX red streaming wordmark</desc>
+  <rect width="320" height="96" rx="18" fill="#050505"/>
+  <path d="M38 27h24c13 0 22 8 22 20s-9 20-22 20H48v14H38V27Zm23 31c8 0 13-4 13-11s-5-11-13-11H48v22h13Z" fill="#ef4444"/>
+  <path d="M103 24 91 39h12l-9 31 29-38h-13l9-8h-16Z" fill="#f59e0b"/>
+  <text x="132" y="60" fill="#fff" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="34" font-weight="900" letter-spacing="1">JUMPFLIX</text>
+  <text x="135" y="77" fill="#ef4444" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="3">PARKOUR TV</text>
+</svg>
