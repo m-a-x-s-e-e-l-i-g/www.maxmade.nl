@@ -9,9 +9,9 @@
 			icon: '🐙',
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
-				{ label: 'Total Stars Earned', value: '35' },
-				{ label: 'Commits (2025)', value: '257' },
-				{ label: 'Pull Requests', value: '54' }
+				{ label: 'Total Stars Earned', value: '90' },
+				{ label: 'Commits (2026)', value: '514' },
+				{ label: 'Pull Requests', value: '84' }
 			],
 			color: 'from-gray-600 to-gray-800',
 			link: 'https://github.com/m-a-x-s-e-e-l-i-g'
@@ -32,10 +32,10 @@
 			icon: '📺',
 			metrics: [
 				// Updated 2025-09-29 from profile page (All Time watched)
-				{ label: 'Shows', value: '144d 2h' },
-				{ label: 'Episodes', value: '5,675' },
-				{ label: 'Movies', value: '138d 20h 3m' },
-				{ label: 'Films', value: '1,701' }
+				{ label: 'Shows', value: '149d 11h 44m' },
+				{ label: 'Episodes', value: '5,787' },
+				{ label: 'Movies', value: '144d 13h 19m' },
+				{ label: 'Films', value: '1,748' }
 			],
 			color: 'from-red-600 to-red-800',
 			link: 'https://trakt.tv/users/garlfed'
@@ -45,8 +45,8 @@
 			icon: '🦋',
 			metrics: [
 				// Updated manually 2025-09-29
-				{ label: 'Observations', value: '1070' },
-				{ label: 'Species', value: '439' },
+				{ label: 'Observations', value: 'Observations' },
+				{ label: 'Species', value: 'Species seen' },
 				{ label: 'Member since', value: '2024-06-15' },
 				{ label: 'Favorite', value: 'Plants' }
 			],
