@@ -131,7 +131,7 @@
 
 		<div class="mt-16 text-center">
 			<p class="text-gray-400 max-w-2xl mx-auto">
-				These statistics are just a glimpse into my digital activities. In the future, I plan to create a separate project to aggregate and visualize all my data in real-time.
+				These statistics are updated regularly.
 			</p>
 		</div>
 	</div>
