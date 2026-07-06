@@ -76,6 +76,19 @@ export const projects: Project[] = [
 		category: 'Web'
 	},
 	{
+		name: 'DMARC-hark',
+		displayName: 'DMARC-hark',
+		description:
+			'DMARC monitoring workspace for cross-domain risk visibility, domain investigation, and live mailbox ingestion tracking.',
+		technologies: ['Svelte', 'Python', 'ClickHouse', 'Docker'],
+		topics: ['dmarc', 'email-security', 'domain-monitoring', 'clickhouse', 'incident-response'],
+		license: 'MIT',
+		isFeatured: true,
+		projectPage: '/projects/dmarc-hark',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/DMARC-hark',
+		category: 'Applications'
+	},
+	{
 		name: 'current-moon-phase-3d',
 		displayName: 'Moon Phase 3D',
 		description: 'Real-time 3D visualization of the current moon phase using Three.js.',
@@ -308,6 +321,7 @@ export function getTechColor(tech: string): string {
 		Data: 'bg-amber-500',
 		Documentation: 'bg-slate-500',
 		'Visual Studio': 'bg-purple-600',
+		ClickHouse: 'bg-yellow-600',
 		Docker: 'bg-blue-700',
 		PHP: 'bg-indigo-600',
 		Shopware: 'bg-blue-800',
