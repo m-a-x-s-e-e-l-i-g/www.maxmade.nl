@@ -107,7 +107,7 @@ export const projects: Project[] = [
 		description: 'Web-based tool to generate unlock codes for Renault and Dacia car radios.',
 		technologies: ['HTML', 'JavaScript'],
 		topics: ['radio', 'generator', 'renault', 'dacia', 'automotive'],
-		stars: 16,
+		stars: 17,
 		license: 'MIT',
 		liveUrl: 'https://renault-dacia-radio-code-generator.netlify.app/',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/renault-radio-code-generator',
@@ -120,7 +120,7 @@ export const projects: Project[] = [
 			'Comprehensive guide to upgrade Renault/Dacia MediaNav systems to Evolution firmware.',
 		technologies: ['Shell', 'Documentation'],
 		topics: ['renault', 'dacia', 'medianav', 'firmware', 'automotive'],
-		stars: 24,
+		stars: 32,
 		license: 'GPL-3.0',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade',
 		category: 'Docs & Tools'
