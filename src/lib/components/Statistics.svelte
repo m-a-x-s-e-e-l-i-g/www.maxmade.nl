@@ -10,8 +10,8 @@
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
 				{ label: 'Total Stars Earned', value: '107' },
-				{ label: 'Commits (2026)', value: '650' },
-				{ label: 'Pull Requests', value: '133' }
+				{ label: 'Commits (2026)', value: '655' },
+				{ label: 'Pull Requests', value: '135' }
 			],
 			color: 'from-gray-600 to-gray-800',
 			link: 'https://github.com/m-a-x-s-e-e-l-i-g'
@@ -32,9 +32,9 @@
 			icon: '📺',
 			metrics: [
 				// Updated 2025-09-29 from profile page (All Time watched)
-				{ label: 'Shows', value: '150d 7h 13m' },
-				{ label: 'Episodes', value: '5,802' },
-				{ label: 'Movies', value: '146d 15h 18m' },
+				{ label: 'Shows', value: '150d 8h 16m' },
+				{ label: 'Episodes', value: '5,803' },
+				{ label: 'Movies', value: '146d 15h 30m' },
 				{ label: 'Films', value: '1,766' }
 			],
 			color: 'from-red-600 to-red-800',
