@@ -89,6 +89,20 @@ export const projects: Project[] = [
 		category: 'Applications'
 	},
 	{
+		name: 'chronophoto',
+		displayName: 'Chronophoto',
+		description:
+			'Turn a short action video into one layered motion photograph with fast, private processing on your own computer.',
+		technologies: ['Python', 'PySide6', 'OpenCV'],
+		topics: ['motion', 'photography', 'video-processing', 'photo-editing', 'desktop-app'],
+		stars: 1,
+		license: 'MIT',
+		isFeatured: true,
+		projectPage: '/projects/chronophoto',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/chronophoto',
+		category: 'Applications'
+	},
+	{
 		name: 'current-moon-phase-3d',
 		displayName: 'Moon Phase 3D',
 		description: 'Real-time 3D visualization of the current moon phase using Three.js.',
@@ -309,6 +323,8 @@ export function getTechColor(tech: string): string {
 		JavaScript: 'bg-yellow-500',
 		TypeScript: 'bg-blue-500',
 		Python: 'bg-green-500',
+		PySide6: 'bg-emerald-600',
+		OpenCV: 'bg-blue-600',
 		'C#': 'bg-purple-500',
 		HTML: 'bg-orange-600',
 		Shell: 'bg-gray-500',
