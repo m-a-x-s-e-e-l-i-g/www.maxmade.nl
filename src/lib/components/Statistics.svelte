@@ -9,9 +9,9 @@
 			icon: '🐙',
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
-				{ label: 'Total Stars Earned', value: '108' },
-				{ label: 'Commits (2026)', value: '686' },
-				{ label: 'Pull Requests', value: '141' }
+				{ label: 'Total Stars Earned', value: '109' },
+				{ label: 'Commits (2026)', value: '691' },
+				{ label: 'Pull Requests', value: '143' }
 			],
 			color: 'from-gray-600 to-gray-800',
 			link: 'https://github.com/m-a-x-s-e-e-l-i-g'
@@ -32,10 +32,10 @@
 			icon: '📺',
 			metrics: [
 				// Updated 2025-09-29 from profile page (All Time watched)
-				{ label: 'Shows', value: '150d 10h 30m' },
-				{ label: 'Episodes', value: '5,806' },
-				{ label: 'Movies', value: '146d 17h 11m' },
-				{ label: 'Films', value: '1,767' }
+				{ label: 'Shows', value: '150d 10h 53m' },
+				{ label: 'Episodes', value: '5,807' },
+				{ label: 'Movies', value: '146d 19h 54m' },
+				{ label: 'Films', value: '1,768' }
 			],
 			color: 'from-red-600 to-red-800',
 			link: 'https://trakt.tv/users/garlfed'
