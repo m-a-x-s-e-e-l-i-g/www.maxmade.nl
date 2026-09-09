@@ -118,13 +118,17 @@ export const projects: Project[] = [
 	{
 		name: 'renault-radio-code-generator',
 		displayName: 'Renault Radio Code Generator',
-		description: 'Web-based tool to generate unlock codes for Renault and Dacia car radios.',
+		description:
+			'Free, private radio unlock code generator with step-by-step guidance for compatible Renault and Dacia head units.',
 		technologies: ['HTML', 'JavaScript'],
 		topics: ['radio', 'generator', 'renault', 'dacia', 'automotive'],
 		stars: 17,
 		license: 'MIT',
+		isFeatured: true,
 		liveUrl: 'https://renault-dacia-radio-code-generator.netlify.app/',
+		projectPage: '/projects/renault-radio-code-generator',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/renault-radio-code-generator',
+		brandImage: 'https://renault-dacia-radio-code-generator.netlify.app/favicon.svg',
 		category: 'Docs & Tools'
 	},
 	{
