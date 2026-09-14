@@ -10,7 +10,7 @@
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
 				{ label: 'Total Stars Earned', value: '112' },
-				{ label: 'Commits (2026)', value: '797' },
+				{ label: 'Commits (2026)', value: '801' },
 				{ label: 'Pull Requests', value: '148' }
 			],
 			color: 'from-gray-600 to-gray-800',
