@@ -10,7 +10,7 @@
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
 				{ label: 'Total Stars Earned', value: '113' },
-				{ label: 'Commits (2026)', value: '948' },
+				{ label: 'Commits (2026)', value: '949' },
 				{ label: 'Pull Requests', value: '149' }
 			],
 			color: 'from-gray-600 to-gray-800',
@@ -22,7 +22,7 @@
 			metrics: [
 				// Updated 2026-02-13 via xboxgamertag.com
 				{ label: 'Gamerscore', value: '11,575' },
-				{ label: 'Games Played', value: '30' }
+				{ label: 'Games Played', value: '0' }
 			],
 			color: 'from-green-600 to-green-800',
 			link: 'https://xboxgamertag.com/search/Snurkpop'
@@ -32,9 +32,9 @@
 			icon: '📺',
 			metrics: [
 				// Updated 2025-09-29 from profile page (All Time watched)
-				{ label: 'Shows', value: '151d 12h 30m' },
+				{ label: 'Shows', value: '151d 14h 44m' },
 				{ label: 'Episodes', value: '5,834' },
-				{ label: 'Movies', value: '148d 2h 32m' },
+				{ label: 'Movies', value: '148d 2h 31m' },
 				{ label: 'Films', value: '1,781' }
 			],
 			color: 'from-red-600 to-red-800',
