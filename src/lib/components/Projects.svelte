@@ -48,6 +48,21 @@
 				<div
 					class="group flex flex-col overflow-hidden rounded-lg border border-gray-800 bg-black transition-colors hover:border-gray-600"
 				>
+					{#if project.previewImage && project.projectPage}
+						<a
+							href={project.projectPage}
+							aria-label="Explore {project.displayName || project.name}"
+						>
+							<img
+								src={project.previewImage}
+								alt="{project.displayName || project.name} interface preview"
+								width="776"
+								height="466"
+								class="aspect-[776/466] w-full border-b border-gray-800 object-contain"
+								loading="lazy"
+							/>
+						</a>
+					{/if}
 					<!-- Project header -->
 					<div class="flex flex-1 flex-col p-6">
 						<div class="mb-4 flex items-start justify-between">

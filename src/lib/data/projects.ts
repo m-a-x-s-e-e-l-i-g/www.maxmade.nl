@@ -12,10 +12,25 @@ export interface Project {
 	projectPage?: string;
 	githubUrl?: string;
 	brandImage?: string;
+	previewImage?: string;
 	category: string;
 }
 
 export const projects: Project[] = [
+	{
+		name: 'MediaNav-to-Evolution-Upgrade',
+		displayName: 'MediaNav MAXmade',
+		description:
+			'A complete firmware and application update for first-generation Renault and Dacia MediaNav systems, with a redesigned dark interface and improvements to Bluetooth, media, and navigation.',
+		technologies: ['Windows CE', 'Firmware', 'Python'],
+		topics: ['renault', 'dacia', 'medianav', 'firmware', 'automotive'],
+		license: 'GPL-3.0',
+		isFeatured: true,
+		projectPage: '/projects/medianav-maxmade',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade',
+		previewImage: '/images/projects/medianav/home-after.jpg',
+		category: 'Applications'
+	},
 	{
 		name: 'VeryFire',
 		displayName: 'VeryFire.io',
@@ -129,18 +144,6 @@ export const projects: Project[] = [
 		projectPage: '/projects/renault-radio-code-generator',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/renault-radio-code-generator',
 		brandImage: 'https://renault-dacia-radio-code-generator.netlify.app/favicon.svg',
-		category: 'Docs & Tools'
-	},
-	{
-		name: 'MediaNav-to-Evolution-Upgrade',
-		displayName: 'MediaNav Evolution Upgrade',
-		description:
-			'Comprehensive guide to upgrade Renault/Dacia MediaNav systems to Evolution firmware.',
-		technologies: ['Shell', 'Documentation'],
-		topics: ['renault', 'dacia', 'medianav', 'firmware', 'automotive'],
-		stars: 32,
-		license: 'GPL-3.0',
-		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade',
 		category: 'Docs & Tools'
 	},
 	{
