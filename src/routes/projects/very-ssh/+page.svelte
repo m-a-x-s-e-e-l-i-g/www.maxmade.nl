@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
@@ -28,13 +29,10 @@
 	const status = ['Active & Open Source'];
 </script>
 
-<svelte:head>
-	<title>Very SSH - Minimal SSH Launcher | MAXmade</title>
-	<meta name="description" content="Minimal, fast GUI application for quickly launching SSH sessions from your ~/.ssh/config." />
-	<meta property="og:title" content="Very SSH - Minimal SSH Launcher" />
-	<meta property="og:description" content="Minimal, fast GUI application for quickly launching SSH sessions from your ~/.ssh/config." />
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="Very SSH - Minimal SSH Launcher | MAXmade"
+	description="Minimal, fast GUI application for quickly launching SSH sessions from your ~/.ssh/config."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

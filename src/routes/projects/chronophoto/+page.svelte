@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
@@ -57,20 +58,13 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Chronophoto - Motion, Held Still | MAXmade</title>
-	<meta
-		name="description"
-		content="Chronophoto turns short action videos into layered motion photographs with a fast, private desktop workflow."
-	/>
-	<meta property="og:title" content="Chronophoto - Motion, Held Still" />
-	<meta
-		property="og:description"
-		content="Turn a short action video into one layered motion photograph. Video-first, private, and local."
-	/>
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content={`${imageBase}/chronophoto-result.png`} />
-</svelte:head>
+<Seo
+	title="Chronophoto - Motion, Held Still | MAXmade"
+	description="Chronophoto turns short action videos into layered motion photographs with a fast, private desktop workflow."
+	image={`${imageBase}/chronophoto-result.png`}
+	imageAlt="Layered motion photograph created with Chronophoto"
+	largeImage
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

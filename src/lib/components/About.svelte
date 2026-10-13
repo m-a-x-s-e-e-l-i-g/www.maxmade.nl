@@ -12,8 +12,8 @@
 			<div class="space-y-8">
 				<div class="text-xl leading-relaxed text-gray-300">
 					<p class="mb-6">
-						I'm <span class="font-semibold text-white">Max</span> — a web developer, creator, and parkour
-						athlete from Bergen op Zoom 🇳🇱.
+						I'm <span class="font-semibold text-white">Max Seelig</span> — a web developer, creator,
+						and parkour athlete from Bergen op Zoom 🇳🇱.
 					</p>
 					<p class="mb-6">
 						I spend most of my time building digital tools, coding ideas into reality, and enjoying

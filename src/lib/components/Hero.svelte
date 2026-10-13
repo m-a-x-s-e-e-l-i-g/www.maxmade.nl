@@ -128,6 +128,10 @@
 			</div>
 		</div>
 
+		<h1 class="mx-auto mb-4 max-w-2xl text-2xl font-semibold text-white sm:text-3xl">
+			Max Seelig — developer & creator
+		</h1>
+
 		<!-- Subtitle -->
 		<p class="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl">
 			Coding • Photography • Music Production • Art • Parkour

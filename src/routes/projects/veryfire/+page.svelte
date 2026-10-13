@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import Slideshow from '$lib/components/Slideshow.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
@@ -42,19 +43,10 @@
 	const status = ['Live & Active'];
 </script>
 
-<svelte:head>
-	<title>VeryFire - Email Verification Tool | MAXmade</title>
-	<meta
-		name="description"
-		content="VeryFire is an email verification service that validates email addresses, checks deliverability, and helps improve email marketing success rates."
-	/>
-	<meta property="og:title" content="VeryFire - Email Verification Tool" />
-	<meta
-		property="og:description"
-		content="Fire up your deliverability with VeryFire's email verification service"
-	/>
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="VeryFire - Email Verification Tool | MAXmade"
+	description="VeryFire is an email verification service that validates email addresses, checks deliverability, and helps improve email marketing success rates."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

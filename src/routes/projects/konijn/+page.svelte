@@ -1,5 +1,6 @@
 
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
   import AutoScrollScreenshot from '$lib/components/AutoScrollScreenshot.svelte';
   import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
   import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
@@ -29,13 +30,10 @@
   const status = ['Live & Active'];
 </script>
 
-<svelte:head>
-  <title>Konijn Art Gallery | MAXmade</title>
-  <meta name="description" content="Konijn Art Gallery – Digital art gallery showcasing creative works and artistic expressions. See the bounciest rabbit in the world!" />
-  <meta property="og:title" content="Konijn Art Gallery" />
-  <meta property="og:description" content="Digital art gallery showcasing creative works and artistic expressions." />
-  <meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="Konijn Art Gallery | MAXmade"
+	description="Konijn Art Gallery – Digital art gallery showcasing creative works and artistic expressions. See the bounciest rabbit in the world!"
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
   <ProjectHeader

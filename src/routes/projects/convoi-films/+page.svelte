@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import AutoScrollScreenshot from '$lib/components/AutoScrollScreenshot.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
@@ -35,19 +36,10 @@
 	const status = ['Live & Active'];
 </script>
 
-<svelte:head>
-	<title>Convoi Films Portfolio | MAXmade</title>
-	<meta
-		name="description"
-		content="Professional portfolio website for video production company Convoi Films, featuring a content management system for showcasing video work and projects."
-	/>
-	<meta property="og:title" content="Convoi Films Portfolio Website" />
-	<meta
-		property="og:description"
-		content="Professional portfolio website for video production company Convoi Films"
-	/>
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="Convoi Films Portfolio | MAXmade"
+	description="Professional portfolio website for video production company Convoi Films, featuring a content management system for showcasing video work and projects."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

@@ -224,6 +224,15 @@
 			</div>
 		{/if}
 
+		<div class="mt-10 text-center">
+			<a
+				href="/projects"
+				class="inline-flex py-3 text-gray-300 underline underline-offset-4 hover:text-white"
+			>
+				Explore all projects
+			</a>
+		</div>
+
 		<!-- GitHub profile link -->
 		<div class="mt-16 text-center">
 			<p class="mb-6 text-gray-400">Want to see more or collaborate on a project?</p>

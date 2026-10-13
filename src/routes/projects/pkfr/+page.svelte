@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import Slideshow from '$lib/components/Slideshow.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
@@ -42,16 +43,10 @@
 	const status = ['Live & Maintained'];
 </script>
 
-<svelte:head>
-	<title>PKFR.nl - Dutch Parkour Community Hub | MAXmade</title>
-	<meta
-		name="description"
-		content="PKFR.nl is the central hub for the Dutch parkour and freerunning community, featuring spot guides, open gym schedules, and community connections."
-	/>
-	<meta property="og:title" content="PKFR.nl - Dutch Parkour Community Hub" />
-	<meta property="og:description" content="The spot for the Dutch parkour and freerunning scene" />
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="PKFR.nl - Dutch Parkour Community Hub | MAXmade"
+	description="PKFR.nl is the central hub for the Dutch parkour and freerunning community, featuring spot guides, open gym schedules, and community connections."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader
