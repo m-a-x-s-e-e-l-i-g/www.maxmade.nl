@@ -1,10 +1,10 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
 	type PillColor = 'orange' | 'blue' | 'emerald' | 'pink' | 'green' | 'gray';
 	const repositoryUrl = 'https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade';
-	const pageUrl = 'https://www.maxmade.nl/projects/medianav-maxmade';
 	const imageBase = '/images/projects/medianav';
 	const tags: Array<{ label: string; color: PillColor }> = [
 		{ label: 'Renault & Dacia', color: 'gray' },
@@ -71,21 +71,13 @@
 	];
 </script>
 
-<svelte:head>
-	<title>MediaNav MAXmade - Firmware & Application Update | MAXmade</title>
-	<meta
-		name="description"
-		content="A complete firmware and application update for first-generation Renault and Dacia MediaNav systems. Explore the dark interface, screenshots, and ongoing development."
-	/>
-	<link rel="canonical" href={pageUrl} />
-	<meta property="og:title" content="MediaNav MAXmade - A New Chapter for Your Dashboard" />
-	<meta property="og:description" content={overviewDescription} />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content={pageUrl} />
-	<meta property="og:image" content={`https://www.maxmade.nl${imageBase}/home-after.jpg`} />
-	<meta property="og:image:alt" content="MediaNav MAXmade dark Home interface preview" />
-	<meta name="twitter:card" content="summary_large_image" />
-</svelte:head>
+<Seo
+	title="MediaNav MAXmade - Firmware & Application Update | MAXmade"
+	description="A complete firmware and application update for first-generation Renault and Dacia MediaNav systems. Explore the dark interface, screenshots, and ongoing development."
+	image={`${imageBase}/home-after.jpg`}
+	imageAlt="MediaNav MAXmade dark Home interface preview"
+	largeImage
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

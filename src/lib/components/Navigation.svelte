@@ -48,37 +48,37 @@
 			<div class="hidden md:block">
 				<div class="ml-10 flex items-baseline space-x-4">
 					<a
-						href="#projects"
+						href="/projects"
 						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
 					>
 						Projects
 					</a>
 					<a
-						href="#photography"
+						href="/#photography"
 						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
 					>
 						Photography
 					</a>
 					<a
-						href="#konine-art"
+						href="/#konine-art"
 						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
 					>
 						🐰 Konine Art
 					</a>
 					<a
-						href="#music"
+						href="/#music"
 						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
 					>
 						Music
 					</a>
 					<a
-						href="#statistics"
+						href="/#statistics"
 						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
 					>
 						Statistics
 					</a>
 					<a
-						href="#contact"
+						href="/#contact"
 						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
 					>
 						Contact
@@ -146,42 +146,42 @@
 		<div class="md:hidden">
 			<div class="space-y-1 border-t border-gray-800 bg-black px-2 pt-2 pb-3 sm:px-3">
 				<a
-					href="#projects"
+					href="/projects"
 					class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
 					onclick={closeMobileMenu}
 				>
 					Projects
 				</a>
 				<a
-					href="#photography"
+					href="/#photography"
 					class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
 					onclick={closeMobileMenu}
 				>
 					Photography
 				</a>
 				<a
-					href="#konine-art"
+					href="/#konine-art"
 					class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
 					onclick={closeMobileMenu}
 				>
 					🐰 Konine Art
 				</a>
 				<a
-					href="#music"
+					href="/#music"
 					class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
 					onclick={closeMobileMenu}
 				>
 					Music
 				</a>
 				<a
-					href="#statistics"
+					href="/#statistics"
 					class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
 					onclick={closeMobileMenu}
 				>
 					📊 Statistics
 				</a>
 				<a
-					href="#contact"
+					href="/#contact"
 					class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
 					onclick={closeMobileMenu}
 				>

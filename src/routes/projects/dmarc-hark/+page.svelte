@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
@@ -56,19 +57,10 @@ docker compose --env-file docker.env up --build -d
 	];
 </script>
 
-<svelte:head>
-	<title>DMARC-hark - DMARC Monitoring Workspace | MAXmade</title>
-	<meta
-		name="description"
-		content="DMARC-hark is an operations-focused DMARC monitoring workspace for cross-domain risk visibility, domain investigation, and ingest observability."
-	/>
-	<meta property="og:title" content="DMARC-hark - DMARC Monitoring Workspace" />
-	<meta
-		property="og:description"
-		content="Cross-domain DMARC risk visibility, domain drill-down, and live ingest monitoring for email and operations teams."
-	/>
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="DMARC-hark - DMARC Monitoring Workspace | MAXmade"
+	description="DMARC-hark is an operations-focused DMARC monitoring workspace for cross-domain risk visibility, domain investigation, and ingest observability."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 	import AdditionalDetails from '$lib/components/projects/AdditionalDetails.svelte';
@@ -65,19 +66,10 @@
 	];
 </script>
 
-<svelte:head>
-	<title>SessionGoals — Parkour Training Companion | MAXmade</title>
-	<meta
-		name="description"
-		content="SessionGoals is a SvelteKit + Supabase training app for parkour and freerunning athletes — set goals, track sessions, follow challenge lists and discover spots."
-	/>
-	<meta property="og:title" content="SessionGoals — Parkour Training Companion" />
-	<meta
-		property="og:description"
-		content="Train what's next. Plan your session. A goal-tracking and session-logging companion for parkour athletes."
-	/>
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="SessionGoals — Parkour Training Companion | MAXmade"
+	description="SessionGoals is a SvelteKit + Supabase training app for parkour and freerunning athletes — set goals, track sessions, follow challenge lists and discover spots."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

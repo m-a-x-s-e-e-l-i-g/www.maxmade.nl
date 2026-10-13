@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import Hero from '../lib/components/Hero.svelte';
 	import About from '../lib/components/About.svelte';
 	import Projects from '../lib/components/Projects.svelte';
@@ -9,13 +10,10 @@
 	import Contact from '../lib/components/Contact.svelte';
 </script>
 
-<svelte:head>
-	<title>MAXmade - Photography, Development, Parkour & Art by Max</title>
-	<meta
-		name="description"
-		content="Full-stack development, photography, rabbit art, and music by Max - creating cool stuff, capturing life's moments, jumping walls, and drawing expressive rabbits"
-	/>
-</svelte:head>
+<Seo
+	title="Max Seelig | Web Development, Photography & Art | MAXmade"
+	description="Max Seelig is a web developer and creator from Bergen op Zoom, the Netherlands. Explore his software projects, photography, rabbit art, music, and parkour."
+/>
 
 <main class="min-h-screen bg-black text-white">
 	<Hero />

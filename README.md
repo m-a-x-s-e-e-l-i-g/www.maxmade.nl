@@ -160,6 +160,31 @@ scripts/
 
 ## Content Management
 
+### SEO and search discovery
+
+- Every public page uses `src/lib/components/Seo.svelte` for its title, description,
+  canonical URL, social previews, and server-rendered JSON-LD.
+- `src/lib/seo.ts` connects Max Seelig, MAXmade, and project pages using stable schema IDs
+  and the existing project catalog. Add a `projectPage` only when its route exists.
+- `/projects` lists every project without requiring JavaScript. Unknown project URLs return 404.
+- `/sitemap.xml` lists canonical public pages; `/robots.txt` allows crawling, explicitly
+  allows OpenAI's search crawler, and advertises the sitemap. Training crawler policy
+  remains unrestricted, as it was before this change.
+- Project images can override the default MAXmade logo through `Seo`'s `image`, `imageAlt`,
+  and `largeImage` properties. Image URLs are made absolute automatically.
+
+To verify the actual HTML crawlers receive, run `npm run build`, then start
+`npm run preview -- --host 127.0.0.1 --port 4173` in another terminal and run
+`npm run test:seo`. For a running development server, set `SEO_BASE_URL` to its origin.
+
+After deployment, submit `https://www.maxmade.nl/sitemap.xml` in Google Search Console
+and Bing Webmaster Tools, inspect the homepage and representative project URLs, and
+check crawl/indexing reports and real search referrals. Structured data and crawler
+access help discovery; they do not guarantee rankings or inclusion in AI answers.
+
+References: [Google's AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
+and [OpenAI crawler documentation](https://developers.openai.com/api/docs/bots).
+
 ### Adding Projects
 
 Edit `src/lib/data/projects.ts` to add new projects:

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
@@ -81,16 +82,10 @@ bin/console cart-seeder:seed \\
 	];
 </script>
 
-<svelte:head>
-	<title>Shopware 6 Cart Seeder - Development Tool | MAXmade</title>
-	<meta
-		name="description"
-		content="A powerful development tool for generating realistic fake customers and shopping carts in Shopware 6 with configurable options."
-	/>
-	<meta property="og:title" content="Shopware 6 Cart Seeder - Development Tool" />
-	<meta property="og:description" content="Generate realistic test data for Shopware 6 development" />
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="Shopware 6 Cart Seeder - Development Tool | MAXmade"
+	description="A powerful development tool for generating realistic fake customers and shopping carts in Shopware 6 with configurable options."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

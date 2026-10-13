@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
 
@@ -54,20 +55,13 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Renault & Dacia Radio Code Generator | MAXmade</title>
-	<meta
-		name="description"
-		content="A free, private Renault and Dacia radio unlock code generator with clear instructions for finding and entering the code."
-	/>
-	<meta property="og:title" content="Renault & Dacia Radio Code Generator" />
-	<meta
-		property="og:description"
-		content="Generate a compatible Renault or Dacia radio unlock code instantly in your browser."
-	/>
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content={`${imageBase}/social-preview.png`} />
-</svelte:head>
+<Seo
+	title="Renault & Dacia Radio Code Generator | MAXmade"
+	description="A free, private Renault and Dacia radio unlock code generator with clear instructions for finding and entering the code."
+	image={`${imageBase}/social-preview.png`}
+	imageAlt="Renault and Dacia Radio Code Generator"
+	largeImage
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

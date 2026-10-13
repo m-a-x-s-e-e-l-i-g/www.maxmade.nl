@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 import Slideshow from '$lib/components/Slideshow.svelte';
 import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
@@ -38,19 +39,10 @@ const stack: Array<{ label: string; color: PillColor }> = [
 const status = ['Complete & Open Source'];
 </script>
 
-<svelte:head>
-	<title>Moon Phase 3D - Real-time Lunar Visualization | MAXmade</title>
-	<meta
-		name="description"
-		content="A beautiful 3D visualization of the current moon phase using Three.js and real astronomical data."
-	/>
-	<meta property="og:title" content="Moon Phase 3D - Real-time Lunar Visualization" />
-	<meta
-		property="og:description"
-		content="Interactive 3D moon phase visualization built with Three.js"
-	/>
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="Moon Phase 3D - Real-time Lunar Visualization | MAXmade"
+	description="A beautiful 3D visualization of the current moon phase using Three.js and real astronomical data."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader

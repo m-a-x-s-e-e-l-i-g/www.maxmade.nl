@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
 	import Slideshow from '$lib/components/Slideshow.svelte';
 	import ProjectHeader from '$lib/components/projects/ProjectHeader.svelte';
 	import ProjectOverview from '$lib/components/projects/ProjectOverview.svelte';
@@ -55,13 +56,10 @@
 	];
 </script>
 
-<svelte:head>
-	<title>JUMPFLIX — Curated Parkour & Freerunning TV | MAXmade</title>
-	<meta name="description" content="JUMPFLIX is a SvelteKit-powered, open-source catalog that curates parkour & freerunning films, docs and playlists—embedding official YouTube/Vimeo and linking to legitimate paid providers." />
-	<meta property="og:title" content="JUMPFLIX — Curated Parkour & Freerunning TV" />
-	<meta property="og:description" content="Open-source discovery hub for parkour & freerunning films and playlists. Official embeds, legit links, fast search, and keyboard-friendly UI." />
-	<meta property="og:type" content="website" />
-</svelte:head>
+<Seo
+	title="JUMPFLIX — Curated Parkour & Freerunning TV | MAXmade"
+	description="JUMPFLIX is a SvelteKit-powered, open-source catalog that curates parkour & freerunning films, docs and playlists—embedding official YouTube/Vimeo and linking to legitimate paid providers."
+/>
 
 <div class="mt-20 min-h-screen bg-gray-900 text-white">
 	<ProjectHeader
