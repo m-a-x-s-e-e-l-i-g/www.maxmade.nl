@@ -9,8 +9,8 @@
 			icon: '🐙',
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
-				{ label: 'Total Stars Earned', value: '117' },
-				{ label: 'Commits (2026)', value: '1047' },
+				{ label: 'Total Stars Earned', value: '118' },
+				{ label: 'Commits (2026)', value: '1048' },
 				{ label: 'Pull Requests', value: '188' }
 			],
 			color: 'from-gray-600 to-gray-800',
