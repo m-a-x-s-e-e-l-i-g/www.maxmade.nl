@@ -18,6 +18,21 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		name: 'kaleido',
+		displayName: 'Kaleido',
+		description:
+			'Kaleidoscope photography on the original Canon EOS M. Compose 4, 6 or 12 reflected segments in LiveView, adjust rotation and center, and capture the pattern in Canon CR2 RAW.',
+		technologies: ['C', 'Magic Lantern', 'JavaScript'],
+		topics: ['photography', 'canon-eos-m', 'magic-lantern', 'kaleidoscope', 'raw'],
+		license: 'GPL-2.0-or-later',
+		isFeatured: true,
+		liveUrl: 'https://kaleido-eosm.netlify.app/',
+		projectPage: '/projects/kaleido',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/kaleido',
+		previewImage: '/images/projects/kaleido/kaleido-liveview-stonework.webp',
+		category: 'Applications'
+	},
+	{
 		name: 'mirror-worlds',
 		displayName: 'Mirror Worlds',
 		description:
