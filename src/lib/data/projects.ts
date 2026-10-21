@@ -18,6 +18,21 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		name: 'mirror-worlds',
+		displayName: 'Mirror Worlds',
+		description:
+			'Creative mirror effects for the original Canon EOS M. Compose reflections in LiveView and capture them directly in Canon CR2 RAW photos with Magic Lantern.',
+		technologies: ['C', 'Magic Lantern', 'JavaScript'],
+		topics: ['photography', 'canon-eos-m', 'magic-lantern', 'raw', 'mirror-effects'],
+		license: 'GPL-2.0-or-later',
+		isFeatured: true,
+		liveUrl: 'https://mirror-worlds.netlify.app/',
+		projectPage: '/projects/mirror-worlds',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/mirror-worlds',
+		previewImage: '/images/projects/mirror-worlds/liveview.webp',
+		category: 'Applications'
+	},
+	{
 		name: 'MediaNav-to-Evolution-Upgrade',
 		displayName: 'MediaNav MAXmade',
 		description:

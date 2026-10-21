@@ -1,0 +1,15 @@
+On-device screenshot: liveview.webp, captured by Max Seelig (MAXmade) on the original Canon EOS M on 2026-10-21.
+Source: mirror-worlds/site/assets/screenshots/vram6.webp (original VRAM6.BMP).
+Lossless WebP, original 720 x 480 pixels, camera overlays intact. This is a LiveView screen capture, not an exported CR2 photo.
+
+Mirror Worlds illustrative previews by Max Seelig (MAXmade).
+
+Source: https://github.com/m-a-x-s-e-e-l-i-g/mirror-worlds/tree/main/docs/images
+Visual credits: https://github.com/m-a-x-s-e-e-l-i-g/mirror-worlds/blob/main/site/assets/CREDITS.md
+
+These previews use the project's browser mirror renderer and an AI-generated
+starting scene. They are illustrations, not photographs captured with the camera
+module. Mirror Worlds itself uses no AI.
+
+The PNG originals were converted to WebP for this portfolio without changing the
+composition. Illustration presentation: Max Seelig (MAXmade), GPL-2.0-or-later.
