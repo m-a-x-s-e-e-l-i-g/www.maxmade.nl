@@ -28,6 +28,7 @@ export const projects: Project[] = [
 		isFeatured: true,
 		liveUrl: 'https://kaleido-eosm.netlify.app/',
 		projectPage: '/projects/kaleido',
+		stars: 1,
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/kaleido',
 		previewImage: '/images/projects/kaleido/kaleido-liveview-stonework.webp',
 		category: 'Applications'
@@ -43,6 +44,7 @@ export const projects: Project[] = [
 		isFeatured: true,
 		liveUrl: 'https://mirror-worlds.netlify.app/',
 		projectPage: '/projects/mirror-worlds',
+		stars: 1,
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/mirror-worlds',
 		previewImage: '/images/projects/mirror-worlds/liveview.webp',
 		category: 'Applications'
@@ -57,6 +59,7 @@ export const projects: Project[] = [
 		license: 'GPL-3.0',
 		isFeatured: true,
 		projectPage: '/projects/medianav-maxmade',
+		stars: 38,
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade',
 		previewImage: '/images/projects/medianav/home-after.jpg',
 		category: 'Applications'
@@ -130,6 +133,7 @@ export const projects: Project[] = [
 		license: 'MIT',
 		isFeatured: true,
 		projectPage: '/projects/dmarc-hark',
+		stars: 1,
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/DMARC-hark',
 		category: 'Applications'
 	},
@@ -140,7 +144,7 @@ export const projects: Project[] = [
 			'Turn a short action video into one layered motion photograph with fast, private processing on your own computer.',
 		technologies: ['Python', 'PySide6', 'OpenCV'],
 		topics: ['motion', 'photography', 'video-processing', 'photo-editing', 'desktop-app'],
-		stars: 1,
+		stars: 2,
 		license: 'MIT',
 		isFeatured: true,
 		projectPage: '/projects/chronophoto',
@@ -167,7 +171,7 @@ export const projects: Project[] = [
 			'Free, private radio unlock code generator with step-by-step guidance for compatible Renault and Dacia head units.',
 		technologies: ['HTML', 'JavaScript'],
 		topics: ['radio', 'generator', 'renault', 'dacia', 'automotive'],
-		stars: 17,
+		stars: 19,
 		license: 'MIT',
 		isFeatured: true,
 		liveUrl: 'https://renault-dacia-radio-code-generator.netlify.app/',
@@ -183,7 +187,7 @@ export const projects: Project[] = [
 			'Utilities to convert and manipulate LGU firmware files for Renault/Dacia MediaNav systems.',
 		technologies: ['Python'],
 		topics: ['converter', 'renault', 'dacia', 'lgu', 'medianav', 'firmware'],
-		stars: 6,
+		stars: 7,
 		license: 'MIT',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/LGU-file-tools',
 		category: 'Docs & Tools'
