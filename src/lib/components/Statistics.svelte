@@ -10,7 +10,7 @@
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
 				{ label: 'Total Stars Earned', value: '122' },
-				{ label: 'Commits (2026)', value: '1098' },
+				{ label: 'Commits (2026)', value: '1100' },
 				{ label: 'Pull Requests', value: '194' }
 			],
 			color: 'from-gray-600 to-gray-800',
@@ -34,7 +34,7 @@
 				// Updated 2025-09-29 from profile page (All Time watched)
 				{ label: 'Shows', value: '151d 11h 26m' },
 				{ label: 'Episodes', value: '5,836' },
-				{ label: 'Movies', value: '148d 19h 38m' },
+				{ label: 'Movies', value: '148d 19h 39m' },
 				{ label: 'Films', value: '1,791' }
 			],
 			color: 'from-red-600 to-red-800',
