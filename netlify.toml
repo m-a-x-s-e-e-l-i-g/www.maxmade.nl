@@ -11,6 +11,42 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[[redirects]]
+  from = "https://albums.maxmade.nl/parkour-1"
+  to = "https://www.maxmade.nl/photography/parkour"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://albums.maxmade.nl/parkour-1"
+  to = "https://www.maxmade.nl/photography/parkour"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://albums.maxmade.nl/favorites"
+  to = "https://www.maxmade.nl/photography/favorites"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://albums.maxmade.nl/favorites"
+  to = "https://www.maxmade.nl/photography/favorites"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://albums.maxmade.nl/*"
+  to = "https://www.maxmade.nl/photography"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://albums.maxmade.nl/*"
+  to = "https://www.maxmade.nl/photography"
+  status = 301
+  force = true
+
 [dev]
   framework = "#custom"
   command = "npm run dev"

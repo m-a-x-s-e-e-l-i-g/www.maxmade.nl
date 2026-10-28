@@ -48,9 +48,9 @@
 	{:else}
 		<div class="empty">
 			<h2>The albums are on their way.</h2>
-			<p>In the meantime, you can explore my existing photography portfolio.</p>
-			<a href="https://albums.maxmade.nl/"
-				>Visit the photography archive <span aria-hidden="true">↗</span></a
+			<p>In the meantime, you can find more photos on Instagram.</p>
+			<a href="https://www.instagram.com/maxseelig_photography/"
+				>View photographs on Instagram <span aria-hidden="true">↗</span></a
 			>
 		</div>
 	{/if}
