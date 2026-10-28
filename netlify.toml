@@ -12,6 +12,18 @@
   NODE_VERSION = "22"
 
 [[redirects]]
+  from = "https://www.albums.maxmade.nl/*"
+  to = "https://www.maxmade.nl/photography"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.albums.maxmade.nl/*"
+  to = "https://www.maxmade.nl/photography"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://albums.maxmade.nl/parkour-1"
   to = "https://www.maxmade.nl/photography/parkour"
   status = 301
