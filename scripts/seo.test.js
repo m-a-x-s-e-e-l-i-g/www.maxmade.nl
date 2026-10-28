@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import { test } from 'node:test';
+import photoAlbums from '../src/lib/photography/albums.json' with { type: 'json' };
 
 const base = process.env.SEO_BASE_URL ?? 'http://127.0.0.1:4173';
 const origin = 'https://www.maxmade.nl';
@@ -10,6 +11,8 @@ const directories = await readdir(new URL('../src/routes/projects/', import.meta
 const paths = [
 	'/',
 	'/projects',
+	'/photography',
+	...photoAlbums.map((album) => `/photography/${album.slug}`),
 	...directories
 		.filter((entry) => entry.isDirectory() && entry.name !== '[slug]')
 		.map((entry) => `/projects/${entry.name}`)

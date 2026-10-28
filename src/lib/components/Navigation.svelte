@@ -54,7 +54,7 @@
 						Projects
 					</a>
 					<a
-						href="/#photography"
+						href="/photography"
 						class="px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
 					>
 						Photography
@@ -153,7 +153,7 @@
 					Projects
 				</a>
 				<a
-					href="/#photography"
+						href="/photography"
 					class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
 					onclick={closeMobileMenu}
 				>

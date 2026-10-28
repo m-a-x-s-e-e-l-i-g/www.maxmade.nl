@@ -1,4 +1,5 @@
 import { projects } from '$lib/data/projects';
+import photoAlbums from '$lib/photography/albums.json';
 
 export const SITE_URL = 'https://www.maxmade.nl';
 export const SITE_NAME = 'MAXmade';
@@ -15,6 +16,8 @@ export function publicPaths() {
 		...new Set([
 			'/',
 			'/projects',
+			'/photography',
+			...photoAlbums.map((album) => `/photography/${album.slug}`),
 			...projects.flatMap((p) => (p.projectPage ? [p.projectPage] : []))
 		])
 	];
@@ -23,6 +26,8 @@ export function publicPaths() {
 export function structuredData(path: string, title: string, description: string, image: string) {
 	const url = canonicalUrl(path);
 	const project = projects.find((p) => p.projectPage && canonicalUrl(p.projectPage) === url);
+	const photography = path === '/photography' || path.startsWith('/photography/');
+	const album = photoAlbums.find((item) => path === `/photography/${item.slug}`);
 	const person = {
 		'@type': 'Person',
 		'@id': PERSON_ID,
@@ -51,14 +56,27 @@ export function structuredData(path: string, title: string, description: string,
 	const breadcrumbs = [
 		{ '@type': 'ListItem', position: 1, name: SITE_NAME, item: `${SITE_URL}/` },
 		...(path !== '/'
-			? [{ '@type': 'ListItem', position: 2, name: 'Projects', item: canonicalUrl('/projects') }]
+			? [
+					{
+						'@type': 'ListItem',
+						position: 2,
+						name: photography ? 'Photography' : 'Projects',
+						item: canonicalUrl(photography ? '/photography' : '/projects')
+					}
+				]
 			: []),
 		...(project
 			? [{ '@type': 'ListItem', position: 3, name: project.displayName ?? project.name, item: url }]
-			: [])
+			: []),
+		...(album ? [{ '@type': 'ListItem', position: 3, name: album.title, item: url }] : [])
 	];
 	const page = {
-		'@type': path === '/' ? 'ProfilePage' : path === '/projects' ? 'CollectionPage' : 'WebPage',
+		'@type':
+			path === '/'
+				? 'ProfilePage'
+				: path === '/projects' || photography
+					? 'CollectionPage'
+					: 'WebPage',
 		'@id': `${url}#webpage`,
 		url,
 		name: title,
@@ -67,7 +85,12 @@ export function structuredData(path: string, title: string, description: string,
 		isPartOf: { '@id': WEBSITE_ID },
 		author: { '@id': PERSON_ID },
 		primaryImageOfPage: { '@type': 'ImageObject', url: image },
-		mainEntity: { '@id': path === '/' ? PERSON_ID : `${url}#${project ? 'project' : 'projects'}` },
+		mainEntity: {
+			'@id':
+				path === '/'
+					? PERSON_ID
+					: `${url}#${photography ? 'photographs' : project ? 'project' : 'projects'}`
+		},
 		...(path !== '/' ? { breadcrumb: { '@id': `${url}#breadcrumbs` } } : {})
 	};
 	const graph: Record<string, unknown>[] = [person, website, page];
@@ -78,7 +101,26 @@ export function structuredData(path: string, title: string, description: string,
 			itemListElement: breadcrumbs
 		});
 	}
-	if (project) {
+	if (photography) {
+		graph.push({
+			'@type': album ? 'ImageGallery' : 'ItemList',
+			'@id': `${url}#photographs`,
+			name: album ? album.title : 'Photography by Max Seelig',
+			url,
+			description,
+			author: { '@id': PERSON_ID },
+			...(!album
+				? {
+						itemListElement: photoAlbums.map((item, index) => ({
+							'@type': 'ListItem',
+							position: index + 1,
+							name: item.title,
+							url: canonicalUrl(`/photography/${item.slug}`)
+						}))
+					}
+				: {})
+		});
+	} else if (project) {
 		graph.push({
 			'@type': 'CreativeWork',
 			'@id': `${url}#project`,

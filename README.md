@@ -44,10 +44,13 @@ A modern, responsive portfolio website showcasing Max Seelig's work in developme
 
 ### 📸 Photography Section
 
-- Automated image gallery generation
-- Modal image viewing
-- Responsive grid layout
-- Images sourced from `static/images/gallery/`
+- Lightroom-backed Parkour and Favorites albums at `/photography`
+- Responsive photo rows and fullscreen viewing with keyboard and swipe controls
+- Incremental sync, cached WebP images and preservation of the last complete gallery
+- Netlify background sync support (requires private production environment setup)
+
+See the [gallery setup](services/photography/README.md) and the
+[Lightroom connection proof](scripts/lightroom/README.md).
 
 ### 🐰 Konine Art Section
 
