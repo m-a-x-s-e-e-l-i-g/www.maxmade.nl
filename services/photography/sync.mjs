@@ -141,7 +141,9 @@ export async function syncGallery({
 				let cached = nextIndex[asset.id] ?? previous[asset.id];
 				if (
 					cached?.fingerprint === fingerprint &&
-					(await storage.hasImage(cached.variants[0].file))
+					// Hosted blobs are durable and written before the cache index. Avoid
+					// one extra network HEAD per unchanged photo on every scheduled run.
+					(storage.cloud || (await storage.hasImage(cached.variants[0].file)))
 				)
 					reused++;
 				else {

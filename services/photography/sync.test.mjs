@@ -118,6 +118,16 @@ test('unchanged sync reuses images, edits refresh one image and removals disappe
 	);
 });
 
+test('hosted unchanged images reuse the durable cache without per-photo network checks', async () => {
+	const { storage, run } = fixture();
+	await run();
+	storage.cloud = true;
+	storage.hasImage = async () => {
+		throw new Error('Unexpected network metadata request');
+	};
+	assert.equal((await run()).downloaded, 0);
+});
+
 test('a failed image preserves the previous public snapshot while retaining complete private cache work', async () => {
 	const { state, client, run } = fixture();
 	await run();
