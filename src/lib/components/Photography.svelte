@@ -86,9 +86,7 @@
 			<div class="relative z-10 text-center px-6 pb-6 md:px-10 md:pb-10">
 				<p class="mb-6 text-white text-glow">Want to see my complete photography portfolio?</p>
 				<a
-					href="https://albums.maxmade.nl/"
-					target="_blank"
-					rel="noopener noreferrer"
+					href="/photography"
 					class="inline-flex items-center rounded-lg border-2 border-white/90 px-8 py-3 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black shadow-[0_1px_2px_rgba(0,0,0,0.6)]"
 				>
 					Visit Full Gallery

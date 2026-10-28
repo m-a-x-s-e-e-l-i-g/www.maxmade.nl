@@ -3,6 +3,9 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
+	"engines": {
+		"node": ">=22.18.0"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "node scripts/generate-images.js && vite build",
@@ -11,6 +14,13 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:seo": "node --test scripts/seo.test.js",
+		"lightroom:probe": "node scripts/lightroom/probe.js",
+		"lightroom:authorize": "node scripts/lightroom/authorize.js",
+		"photography:sync": "node scripts/lightroom/sync-gallery.js",
+		"photography:prepare-hosting": "node scripts/lightroom/prepare-hosting.js",
+		"test:photography": "node --test services/photography/*.test.mjs",
+		"test:photography:http": "node --test scripts/photography-http.test.js",
+		"test:lightroom": "node --test scripts/lightroom/client.test.js",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"generate-images": "node scripts/generate-images.js"
@@ -18,8 +28,8 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
-		"@sveltejs/adapter-netlify": "^5.0.2",
-		"@sveltejs/kit": "^2.16.0",
+		"@sveltejs/adapter-netlify": "^6.0.4",
+		"@sveltejs/kit": "^2.31.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
 		"@tailwindcss/vite": "^4.0.0",
 		"eslint": "^9.18.0",
@@ -38,6 +48,9 @@
 		"vite": "^6.2.6"
 	},
 	"dependencies": {
-		"@unpic/svelte": "^1.0.0"
+		"@netlify/blobs": "^11.1.7",
+		"@netlify/functions": "^6.0.3",
+		"@unpic/svelte": "^1.0.0",
+		"sharp": "^0.35.5"
 	}
 }

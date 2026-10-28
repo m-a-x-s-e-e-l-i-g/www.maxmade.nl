@@ -3,7 +3,13 @@
   publish = "build"
 
 [functions]
-  directory = ".netlify/functions-internal"
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["sharp"]
+  included_files = ["!.lightroom-proof/**", "!.photography-cache/**", "!.env", "!.env.*"]
+
+[build.environment]
+  NODE_VERSION = "22"
 
 [dev]
   framework = "#custom"
