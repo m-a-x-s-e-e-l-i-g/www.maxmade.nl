@@ -13,9 +13,9 @@
 <main class="photography-home">
 	<header class="intro">
 		<p class="eyebrow">Max Seelig / Photography</p>
-		<h1>A different<br /><span>way of seeing.</span></h1>
+		<h1>Mostly people<br /><span>jumping things.</span></h1>
 		<div class="intro-bottom">
-			<p>Movement. Places. The moments in between.</p>
+			<p>And a few other favourites.</p>
 			<span>Selected albums <span aria-hidden="true">↙</span></span>
 		</div>
 	</header>
