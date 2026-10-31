@@ -13,10 +13,28 @@ export interface Project {
 	githubUrl?: string;
 	brandImage?: string;
 	previewImage?: string;
+	previewImageAlt?: string;
 	category: string;
 }
 
 export const projects: Project[] = [
+	{
+		name: 'bayer-drift',
+		displayName: 'Bayer Drift',
+		description:
+			'Bayer glitch photography on the original Canon EOS M. Shift sensor colour samples into repeating patterns, false colour and beaded edges, with the effect saved directly in Canon CR2 RAW.',
+		technologies: ['C', 'Magic Lantern'],
+		topics: ['photography', 'canon-eos-m', 'magic-lantern', 'bayer-glitch', 'raw'],
+		license: 'GPL-2.0-or-later',
+		isFeatured: true,
+		liveUrl: 'https://bayer-drift.netlify.app/',
+		projectPage: '/projects/bayer-drift',
+		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/bayer-drift',
+		previewImage: '/images/projects/bayer-drift/city-small.webp',
+		previewImageAlt:
+			'City blocks with repeating colour interference, photographed with Bayer Drift on the Canon EOS M',
+		category: 'Applications'
+	},
 	{
 		name: 'kaleido',
 		displayName: 'Kaleido',
