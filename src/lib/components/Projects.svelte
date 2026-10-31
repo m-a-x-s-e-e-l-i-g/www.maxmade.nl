@@ -55,7 +55,8 @@
 						>
 							<img
 								src={project.previewImage}
-								alt="{project.displayName || project.name} interface preview"
+								alt={project.previewImageAlt ??
+									`${project.displayName || project.name} interface preview`}
 								width="776"
 								height="466"
 								class="aspect-[776/466] w-full border-b border-gray-800 object-contain"
