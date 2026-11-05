@@ -10,8 +10,8 @@
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
 				{ label: 'Total Stars Earned', value: '131' },
-				{ label: 'Commits (2026)', value: '1179' },
-				{ label: 'Pull Requests', value: '206' }
+				{ label: 'Commits (2026)', value: '1186' },
+				{ label: 'Pull Requests', value: '207' }
 			],
 			color: 'from-gray-600 to-gray-800',
 			link: 'https://github.com/m-a-x-s-e-e-l-i-g'
