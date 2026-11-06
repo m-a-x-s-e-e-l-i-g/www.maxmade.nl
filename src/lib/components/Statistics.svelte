@@ -10,7 +10,7 @@
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
 				{ label: 'Total Stars Earned', value: '131' },
-				{ label: 'Commits (2026)', value: '1186' },
+				{ label: 'Commits (2026)', value: '1187' },
 				{ label: 'Pull Requests', value: '207' }
 			],
 			color: 'from-gray-600 to-gray-800',
@@ -34,7 +34,7 @@
 				// Updated 2025-09-29 from profile page (All Time watched)
 				{ label: 'Shows', value: '151d 11h 26m' },
 				{ label: 'Episodes', value: '5,838' },
-				{ label: 'Movies', value: '149d 3h' },
+				{ label: 'Movies', value: '149d 4h 54m' },
 				{ label: 'Films', value: '1,796' }
 			],
 			color: 'from-red-600 to-red-800',
@@ -46,7 +46,7 @@
 			metrics: [
 				// Updated manually 2025-09-29
 				{ label: 'Observations', value: 'Observations' },
-				{ label: 'Species', value: 'Species seen' },
+				{ label: 'Species', value: 'Observed species' },
 				{ label: 'Member since', value: '2024-06-15' },
 				{ label: 'Favorite', value: 'Plants' }
 			],
