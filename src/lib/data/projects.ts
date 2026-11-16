@@ -29,6 +29,7 @@ export const projects: Project[] = [
 		isFeatured: true,
 		liveUrl: 'https://bayer-drift.netlify.app/',
 		projectPage: '/projects/bayer-drift',
+		stars: 1,
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/bayer-drift',
 		previewImage: '/images/projects/bayer-drift/city-small.webp',
 		previewImageAlt:
@@ -62,7 +63,7 @@ export const projects: Project[] = [
 		isFeatured: true,
 		liveUrl: 'https://mirror-worlds.netlify.app/',
 		projectPage: '/projects/mirror-worlds',
-		stars: 1,
+		stars: 2,
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/mirror-worlds',
 		previewImage: '/images/projects/mirror-worlds/liveview.webp',
 		category: 'Applications'
@@ -77,7 +78,7 @@ export const projects: Project[] = [
 		license: 'GPL-3.0',
 		isFeatured: true,
 		projectPage: '/projects/medianav-maxmade',
-		stars: 38,
+		stars: 50,
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade',
 		previewImage: '/images/projects/medianav/home-after.jpg',
 		category: 'Applications'
@@ -189,7 +190,7 @@ export const projects: Project[] = [
 			'Free, private radio unlock code generator with step-by-step guidance for compatible Renault and Dacia head units.',
 		technologies: ['HTML', 'JavaScript'],
 		topics: ['radio', 'generator', 'renault', 'dacia', 'automotive'],
-		stars: 19,
+		stars: 20,
 		license: 'MIT',
 		isFeatured: true,
 		liveUrl: 'https://renault-dacia-radio-code-generator.netlify.app/',
@@ -205,7 +206,7 @@ export const projects: Project[] = [
 			'Utilities to convert and manipulate LGU firmware files for Renault/Dacia MediaNav systems.',
 		technologies: ['Python'],
 		topics: ['converter', 'renault', 'dacia', 'lgu', 'medianav', 'firmware'],
-		stars: 7,
+		stars: 8,
 		license: 'MIT',
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/LGU-file-tools',
 		category: 'Docs & Tools'
