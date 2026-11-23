@@ -78,7 +78,7 @@ export const projects: Project[] = [
 		license: 'GPL-3.0',
 		isFeatured: true,
 		projectPage: '/projects/medianav-maxmade',
-		stars: 50,
+		stars: 51,
 		githubUrl: 'https://github.com/m-a-x-s-e-e-l-i-g/MediaNav-to-Evolution-Upgrade',
 		previewImage: '/images/projects/medianav/home-after.jpg',
 		category: 'Applications'
