@@ -10,7 +10,7 @@
 			metrics: [
 				{ label: 'Total Contributions', value: '5,284' },
 				{ label: 'Total Stars Earned', value: '139' },
-				{ label: 'Commits (2026)', value: '1227' },
+				{ label: 'Commits (2026)', value: '1228' },
 				{ label: 'Pull Requests', value: '216' }
 			],
 			color: 'from-gray-600 to-gray-800',
@@ -34,8 +34,8 @@
 				// Updated 2025-09-29 from profile page (All Time watched)
 				{ label: 'Shows', value: '151d 12h 12m' },
 				{ label: 'Episodes', value: '5,840' },
-				{ label: 'Movies', value: '149d 6h 37m' },
-				{ label: 'Films', value: '1,797' }
+				{ label: 'Movies', value: '149d 9h 21m' },
+				{ label: 'Films', value: '1,798' }
 			],
 			color: 'from-red-600 to-red-800',
 			link: 'https://trakt.tv/users/garlfed'
